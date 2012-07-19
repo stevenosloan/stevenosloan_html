@@ -1,4 +1,2 @@
-stevenosloan_html
-=================
-
-... lets make a mm boilerplate
+`bundle install`
+`bundle exec middleman server`

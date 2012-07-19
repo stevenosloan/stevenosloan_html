@@ -1,0 +1,62 @@
+@mixin box-sizing( $type: border-box ){
+  -moz-box-sizing: $type;
+  -webkit-box-sizing: $type;
+  box-sizing: $type;
+}
+
+@mixin gradient( $from, $to ){
+  background-color: $from;
+  background-image: -webkit-gradient(linear, left top, left bottom, from($from), to($to)); /* Saf4+, Chrome */
+  background-image: -webkit-linear-gradient(top, $from, $to); /* Chrome 10+, Saf5.1+, iOS 5+ */
+  background-image: -moz-linear-gradient(top, $from, $to); /* FF3.6+ */
+  background-image: -ms-linear-gradient(top, $from, $to); /* IE10 */
+  background-image: -o-linear-gradient(top, $from, $to); /* Opera 11.10+ */
+  background-image: linear-gradient(to bottom, $from, $to);
+}
+
+@mixin smoothing{
+    -webkit-font-smoothing: antialiased;
+}
+
+@mixin transition( $type: all, $time: .3s, $easing: linear) {  
+  -o-transition: $type $time $easing;
+  -moz-transition: $type $time $easing;
+  -webkit-transition: $type $time $easing;
+  transition: $type $time $easing;
+}
+
+@mixin text-shadow( $args: 0 -1px 1px rgba( 0, 0, 0, 0.5 ) ){
+     text-shadow: $args;
+}
+
+@mixin box-shadow( $args ){
+  -webkit-box-shadow: $args;
+  box-shadow: $args;
+}
+
+@mixin border-radius( $rad: 4px ){
+  -webkit-border-radius: $rad;
+  border-radius: $rad;
+}
+
+@mixin border-radius-diff( $tl: 4px, $tr: 4px, $br: 4px, $bl: 4px){
+  -webkit-border-top-left-radius: $tl;
+  -webkit-border-top-right-radius: $tr;
+  -webkit-border-bottom-right-radius: $br;
+  -webkit-border-bottom-left-radius: $bl;
+  -moz-border-radius-topleft: $tl;
+  -moz-border-radius-topright: $tr;
+  -moz-border-radius-bottomright: $br;
+  -moz-border-radius-bottomleft: $bl;
+  border-top-left-radius: $tl;
+  border-top-right-radius: $tr;
+  border-radius-bottomright: $br;
+  border-radius-bottomleft: $bl;
+}
+
+@mixin background-size( $args ){
+  -webkit-background-size: $args;
+  -moz-background-size: $args;
+  -o-background-size: $args;
+  background-size: $args;
+}
