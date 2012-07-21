@@ -7,7 +7,17 @@ task :build do
 end
 
 
+desc "run middleman server"
+task :server do
+  
+  system "bundle exec middleman server"
+
+end
+
+
 desc "preview the built site"
 task :preview do
+  
   system "cd ./build && python -m SimpleHTTPServer"
+
 end
