@@ -6,3 +6,7 @@ root = true
 end_of_line = LF
 indent_style = space
 indent_size = 2
+
+; Haml Indentation
+[*.haml]
+indent_size = 4

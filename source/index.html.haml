@@ -1,1 +1,93 @@
-%h1 Hello World
+#siteWrapper
+  
+    #siteHeader
+    
+        #siteNav
+            %a#homeLink{ :href => "/" ,  :alt => "home" } Steven Sloan
+            %a#workLink{ :href => "#work", :alt => "work" } Work
+            %a#contactLink{ :href => "#contact", :alt => "contact" } Contact
+
+        %h1 I design and make things in the shop &amp; on the web.
+
+    %p
+        I&rsquo;m a tinkerer at heart and love getting in the mix of it and making it work, and well. Whether it&rsquo;s pushing material through the saw, pushing pixels, or pushing code updates I always seek to solve problems in the cleanest, most efficient way possible.
+
+    %section#currently
+    
+        %h1 Currently
+        %p 
+            I work as a designer &amp; developer with <a href="http://vaguelyscandinavian.com" alt="atlanta based web design and development">Vaguely Scandinavian</a>
+
+        %h1 Previously
+        %p
+            I worked as a UI and UX designer at <a href="http://digitalscientists" rel="external">Digital Scientists</a> after working as a designer &amp; developer at <a href="http://peopleofresource.com" rel="external">People of Resource</a>
+
+    %section#work
+
+        %ul
+            %li.first
+                %figure
+                    %img{ :src => "images/projects/credenza-003.jpg", :width => "768", :height => "506", :alt => "Credenza 003 - a mid-century inspired modern media console" }
+                    %figcaption
+                        %h2 Credenza 003 <em>/ mid-century modern media console</em>
+            %li
+                %figure
+                    %img{ :src => "images/projects/road_ninja-iphone-app.jpg", :width => "768", :height => "506", :alt => "interaction design for the iphone app road ninja" }
+                    %figcaption
+                        %h2 Road Ninja <em>/ location &amp; deals app</em>
+                        %p
+                            completed at <a href="http://digitalscientists.com" rel="external">Digital Scientists</a> as lead interaction designer
+
+            %li
+                %figure
+                    %img{ :src => "images/projects/flickering_productions-branding-design.png", :width => "768", :height => "506", :alt => "branding and web design for flickering productions" }
+                    %figcaption
+                        %h2 Flickering Productions <em>/ independent production studio</em>
+                        %p
+                            completed at <a href="http://vaguelyscandinavian.com" title="atlanta based branding & design agency">Vaguely Scandinavian</a> as brand &amp; web designer
+
+            %li
+                %figure
+                    %img{ :src => "images/projects/table_001-glueless-flatpack_furniture-design.jpg", :width => "768", :height => "506", :alt => "table 001 - a glueless flatpack furniture design" }
+                    %figcaption
+                        %h2 Table 001 <em>/ glueless flatpack furniture</em>
+
+
+            %li
+                %figure
+                    %img{ :src => "images/projects/southern_design_concern-web_design-web_development.jpg", :width => "768", :height => "506", :atl => "southern design concern - a southern american design collective" }
+                    %figcaption
+                        %h2 Southern Design Concern <em>/ design collective</em>
+                        %p
+                            completed at <a href="http://vaguelyscandinavian.com" title="atlanta based web design & development agency">Vaguely Scandinavian</a> as lead web designer &amp; developer
+
+    %section#contact
+        %h1 I'd love it if you <br/>got in touch
+
+        %form#theContactForm{ :action => "contactForm.php", :method => "post" }
+
+            %label{ :for => "contactName" } Name
+            %input.text#contactName{ :type => "text", :name => "contactName" }
+
+            %label{ :for => "contactEmail" } Email
+            %input.text#contactEmail{ :type => "email", :name => "contactEmail", :autocomplete => "off", :autocapitalize => "off" }
+
+            %label{ :for => "contactMessage" } Message
+            %textarea#contactMessage{ :name => "contactMessage" }
+
+            %label{ :for =>"humanOrNot", :class => "humanOrNot" } What is four plus four?
+            %input.humanOrNot#humanOrNot{ :type => "text", :name => "humanOrNot", :placeholder => "just a little math", :autocomplete => "off" }
+
+            %input.submit#contactSend{ :type => "submit", :name => "contactSend", :value => "Send" }
+
+    %footer#siteFooter
+        %a{ :href => "http://twitter.com/#!/stevenosloan", :rel => "external" } twitter
+        &nbsp;&nbsp;|&nbsp;&nbsp;
+        %a{ :href => "http://www.linkedin.com/in/stevenosloan", :rel => "external" } linkedin
+        &nbsp;&nbsp;|&nbsp;&nbsp;
+        %a{ :href => "http://southerndesignconcern.com" } southern design concern
+        %p.colophon
+            &copy;2007 -
+            = Time.now.year
+            Steven Sloan. All rights reserved.
+
