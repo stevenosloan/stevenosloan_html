@@ -10,7 +10,7 @@ $contactName  =   isset( $_POST['contactName'] ) ? preg_replace( "/[^\.\-\' a-zA
 $contactEmail =   isset( $_POST['contactEmail'] ) ? preg_replace( "/[^\.\-\_\@a-zA-Z0-9]/", "", $_POST['contactEmail'] ) : "";
 $contactMessage =   isset( $_POST['contactMessage'] ) ? preg_replace( "/(From:|To:|BCC:|CC:|Subject:|Content-Type:)/", "", $_POST['contactMessage'] ) : "";
 $jsOrNot = $_POST['jsOrNot'];
-$botPrevention = $_POST['humanOrNot'];
+$humanOrNot = $_POST['humanOrNot'];
 
 
 if( isset( $jsOrNot ) ){
