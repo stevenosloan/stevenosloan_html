@@ -1,7 +1,8 @@
-# set index as build
-RewriteEngine on
-RewriteCond %{REQUEST_URI} !^/build/
-RewriteRule ^(.*)$ /build/$1 [P,L]
+# redirect www to root
+RewriteEngine On
+RewriteBase /
+RewriteCond %{HTTP_HOST} ^www.stevenosloan.com [NC]
+RewriteRule ^(.*)$ http://stevenosloan.com/$1 [L,R=301]
 
 
 
