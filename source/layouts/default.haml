@@ -1,28 +1,30 @@
 !!! 5
+%html
 
-%head
-  %meta{ :charset => "UTF-8" }
-  = stylesheet_link_tag 'site'
-  %meta( http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" )
+    %head
+        
+        %meta{ :charset => "UTF-8" }
+        = stylesheet_link_tag 'site'
+        %meta( http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" )
 
-  = javascript_include_tag 'izrs'
-  %script{ :type => "text/javascript" }
-    :plain
-      window.LoadedFunctions = {};
+        = javascript_include_tag 'izrs'
+        %script{ :type => "text/javascript" }
+            :plain
+                window.LoadedFunctions = {};
 
-      Modernizr.load([
-        {
-          load: 
-            ['#{versioned_script("site")}']
-        },
-        { 
-          load:
-            ['#{versioned_script("cycle")}']
-        }
-      ]);
+                Modernizr.load([
+                    {
+                        load: 
+                        ['#{versioned_script("site")}']
+                    },
+                    { 
+                        load:
+                        ['#{versioned_script("cycle")}']
+                    }
+                ]);
 
-  = yield_content :head
+        = yield_content :head
 
-%body
+    %body
 
-  = yield
+        = yield
