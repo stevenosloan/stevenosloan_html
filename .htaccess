@@ -1,11 +1,11 @@
 # Redirect www to () & set index as build
 RewriteEngine on
-RewriteCond %{HTTP_HOST} ^(www.)?stevenosloan.webfactional.com$
+RewriteCond %{HTTP_HOST} ^(www.)?stevenosloan.com$
 RewriteCond %{REQUEST_URI} !^/build/
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ /build/$1
-RewriteCond %{HTTP_HOST} ^(www.)?stevenosloan.webfactional.com$
+RewriteCond %{HTTP_HOST} ^(www.)?stevenosloan.com$
 RewriteRule ^(/)?$ build/index.html [L] 
 
 
