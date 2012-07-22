@@ -62,6 +62,7 @@
                             completed at <a href="http://vaguelyscandinavian.com" title="atlanta based web design & development agency">Vaguely Scandinavian</a> as lead web designer &amp; developer
 
     %section#contact
+
         %h1 I'd love it if you <br/>got in touch
 
         %form#theContactForm{ :action => "contactForm.php", :method => "post" }
@@ -79,6 +80,8 @@
             %input.humanOrNot#humanOrNot{ :type => "text", :name => "humanOrNot", :placeholder => "just a little math", :autocomplete => "off" }
 
             %input.submit#contactSend{ :type => "submit", :name => "contactSend", :value => "Send" }
+
+        #contactMessages
 
     %footer#siteFooter
         %a{ :href => "http://twitter.com/#!/stevenosloan", :rel => "external" } twitter
