@@ -22,6 +22,7 @@ set :images_dir, 'assets/images'
 
 ## Ignore the source js files
 ignore "assets/scripts/src/*"
+set :markdown_engine, :redcarpet
 
 
 

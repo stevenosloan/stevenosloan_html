@@ -1,15 +1,19 @@
 source 'http://rubygems.org'
+ruby "1.9.3"
 
+gem "rake"
+gem "colorize"
+gem "net-ssh-simple"
+
+## middleman
 git "git://github.com/middleman/middleman.git" do
   gem "middleman"
   gem "middleman-core"
   gem "middleman-more"
 end
 gem "middleman-sprockets", :git => "git://github.com/middleman/middleman-sprockets.git"
-gem "rake"
-gem "colorize"
-gem "padrino-core", "0.10.7"
-gem "padrino-helpers", "0.10.7"
-gem "net-ssh-simple"
-gem "colorize"
+
+## performance
+gem "redcarpet"
+gem "oj"
 gem "therubyracer"
