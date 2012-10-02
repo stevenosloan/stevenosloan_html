@@ -18,4 +18,7 @@
 	%body{ :class => page_class }
 
 		= render_partial "navi"
-		= yield
+		%section.content
+			= yield
+
+		#grid
