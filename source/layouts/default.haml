@@ -8,26 +8,14 @@
 		%meta( http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" )
 		%meta{ :name => "google-site-verification", :content => "7KgHTNkMMzdgvgz_Jbb_uNkC18FuunUTvC7MxXWRVRo" }
 
-		= javascript_include_tag 'izrs'
-		%script{ :type => "text/javascript" }
-			:plain
-				window.LoadedFunctions = {};
 		%title= page_title
 
-				Modernizr.load([
-					{
-						load: 
-						['#{versioned_script("site")}']
-					},
-					{ 
-						load:
-						['#{versioned_script("cycle")}']
-					}
-				]);
 		= stylesheet_link_tag 'site'
 
-		= render_partial 'analytics'
+		= javascript_include_tag 'izrs'
+		
 
+		= render_partial 'analytics'
 		= yield_content :head
 
 	%body{ :class => page_class }
