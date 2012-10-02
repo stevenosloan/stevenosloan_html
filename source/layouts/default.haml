@@ -11,13 +11,11 @@
 		%title= page_title
 
 		= stylesheet_link_tag 'site'
-
 		= javascript_include_tag 'izrs'
-		
-
 		= render_partial 'analytics'
 		= yield_content :head
 
 	%body{ :class => page_class }
 
+		= render_partial "navi"
 		= yield
