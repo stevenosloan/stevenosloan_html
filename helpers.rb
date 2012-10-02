@@ -9,4 +9,13 @@ module CustomHelpers
     partial "partials/#{partial_name}"
   end
 
+  def page_title
+  	current_page.data.title ?  "#{current_page.data.title} | Steven Sloan" : data.global.title
+  end
+
+  def page_class
+  	page_class = current_path.chomp( '/index.html' ).gsub( '/', '-' )
+    ( page_class == "index.html" ) ? "home" : page_class
+  end
+
 end

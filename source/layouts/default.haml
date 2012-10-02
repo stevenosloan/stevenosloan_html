@@ -4,7 +4,7 @@
 	%head
 		
 		%meta{ :charset => "UTF-8" }
-		= stylesheet_link_tag 'site'
+		%meta{ :name => "viewport", :content => "width=device-width, initial-scale=1" }
 		%meta( http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" )
 		%meta{ :name => "google-site-verification", :content => "7KgHTNkMMzdgvgz_Jbb_uNkC18FuunUTvC7MxXWRVRo" }
 
@@ -12,6 +12,7 @@
 		%script{ :type => "text/javascript" }
 			:plain
 				window.LoadedFunctions = {};
+		%title= page_title
 
 				Modernizr.load([
 					{
@@ -23,11 +24,12 @@
 						['#{versioned_script("cycle")}']
 					}
 				]);
+		= stylesheet_link_tag 'site'
 
 		= render_partial 'analytics'
 
 		= yield_content :head
 
-	%body
+	%body{ :class => page_class }
 
 		= yield
