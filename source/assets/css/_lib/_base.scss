@@ -1,0 +1,118 @@
+/*
+**  TABLE OF CONTENTS
+**  
+**  1. Colors
+**	2. Typography
+**  3. Styles
+*/
+
+
+/*     Colors
+----------------------------------------------------------------------------- */
+
+$dark: #2D3241;
+$mid: #9698A0;
+$light: #E1E2E4;
+$bright: #F4F4F5;
+$white: #f6f6f6;
+
+$pop: #FFDD00;
+$highlight: #FFF6BF;
+
+@include select-color( $highlight );
+
+/*
+**  @colors produces:
+**
+**  .bg-#{name}{
+**    background: $name;
+**  }
+**
+**  .#{name}{
+**     color: $name;
+**  }
+*/
+
+@include colors( dark, $dark );
+@include colors( mid, $mid );
+@include colors( light, $light );
+@include colors( bright, $bright );
+
+@include colors( pop, $pop );
+@include colors( highlight, $highlight );
+
+
+
+/*     Typography
+----------------------------------------------------------------------------- */
+
+$baseline: 15px;
+$small: 15px;
+$body: 18px;
+$title: 30px;
+
+@mixin font-size-small{
+	font-size: $small;
+	line-height: $baseline;
+}
+
+@mixin font-size-body{
+	font-size: $body;
+	line-height: $baseline * 2;
+}
+
+@mixin font-size-title{
+	font-size: $title;
+	line-height: $baseline * 3;
+}
+
+@mixin serif{
+	font-family: Georgia, "Times New Roman", Times, sans-serif;
+}
+
+@mixin sans{
+	font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
+
+@mixin monospace{
+	font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
+}
+
+
+/*
+**  Start Classes
+*/
+
+body{
+	@include font-size-body;
+	@include serif;
+	color: $mid;
+}
+
+.title{
+	@include font-size-title;
+	@include sans;
+}
+
+.body{
+	@include font-size-body;
+	@include serif;
+}
+
+.code{
+	@include font-size-body;
+	@include monospace;
+}
+
+
+
+
+/*     Typography
+----------------------------------------------------------------------------- */
+
+a{
+	text-decoration: none;
+	&:hover{
+		text-decoration: underline;
+	}
+}

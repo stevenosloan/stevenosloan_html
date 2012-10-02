@@ -1,2 +1,77 @@
 @import "_lib/normalize.scss";
 @import "_lib/@mixins.scss";
+@import "_lib/base.scss";
+
+/*
+**  TABLE OF CONTENTS
+**
+**  1. Page Elements
+*/
+
+#grid{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	background: url(/grid.png);
+	opacity: .5;
+	z-index: -100;
+}
+
+
+/*     Page Elements
+----------------------------------------------------------------------------- */
+html, body{
+	width: 100%;
+	height: 100%;
+}
+
+body{
+	background: $white;
+}
+
+.site-navi{
+	background: $dark;
+	color: $white;
+	display: block;
+	min-height: 100%;
+	width: 100% * 1/5;
+	min-width: 240px;
+	@include box-sizing;
+	float: left;
+	padding: ( $baseline * 2.466666666 ) 0 0 ( $baseline * 4 );
+	border-right: 1px solid $dark;
+	h1{
+		margin: 0;
+		@include font-size-body;
+		@include sans;
+		color: $white;
+	}
+	nav{
+		margin-top: $baseline * 4;
+		a{
+			color: $white;
+			display: block;
+			margin-bottom: $baseline / 2;
+			padding-bottom: $baseline / 2;
+			border-bottom: 1px solid $dark;
+			@include transition( all, .2s, linear );
+			&:hover{
+				text-decoration: none;
+				color: #fff;
+				border-bottom: 1px solid $mid;
+			@include transition( all, .6s, linear );
+			}
+			&.is-here{
+				border-bottom: 1px solid $pop;
+				&:hover{
+					cursor: default;
+				}
+			}
+		}
+	}
+}
+
+.content{
+	float: left;
+	padding-left: $baseline * 4;
+}

@@ -55,3 +55,24 @@
   -webkit-box-shadow: $args;
   box-shadow: $args;
 }
+
+@mixin select-color( $hex ){
+	::selection {
+		background: $hex; /* Safari */
+	}
+	::-moz-selection {
+		background: $hex; /* Firefox */
+	}
+}
+
+@mixin colors( $name, $hex ){
+	
+	.bg-#{$name}{
+		background: $hex;
+	}
+
+	.#{$name}{
+		color: $hex;
+	}
+	
+}
