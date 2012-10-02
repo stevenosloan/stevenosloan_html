@@ -1,0 +1,57 @@
+/*
+**  TABLE OF CONTENTS
+**
+**	1. Layout
+**  2. Transitions and Animation
+**  3. Styles
+*/
+
+/*     Layout
+----------------------------------------------------------------------------- */
+
+@mixin box-sizing( $type: border-box ){
+  -moz-box-sizing: $type;
+  -webkit-box-sizing: $type;
+  box-sizing: $type;
+}
+
+
+@mixin create-grid( $columns ){
+  $idx: $columns;
+  @while $idx > 0{
+    .span#{$idx}of#{$columns}{
+      width: $idx/$columns * 100%;
+    }
+    $idx: $idx - 1;
+  }
+}
+
+@mixin clearfix(){
+  &:after{
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+
+
+/*     Transitions and Animation
+----------------------------------------------------------------------------- */
+
+@mixin transition( $type: all, $time: .3s, $easing: linear) {  
+       -o-transition: $type $time $easing;
+     -moz-transition: $type $time $easing;
+  -webkit-transition: $type $time $easing;
+          transition: $type $time $easing;
+}
+
+
+
+/*     Styles
+----------------------------------------------------------------------------- */
+
+@mixin box-shadow( $args ){
+  -webkit-box-shadow: $args;
+  box-shadow: $args;
+}
