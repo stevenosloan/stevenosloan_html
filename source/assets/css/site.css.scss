@@ -14,7 +14,7 @@
 	position: absolute;
 	background: url(/grid.png);
 	opacity: .5;
-	z-index: -100;
+	z-index: 100;
 }
 
 
@@ -49,6 +49,7 @@ body{
 	nav{
 		margin-top: $baseline * 4;
 		a{
+			letter-spacing: .1em;
 			color: $white;
 			display: block;
 			margin-bottom: $baseline / 2;
