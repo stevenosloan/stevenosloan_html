@@ -12,6 +12,8 @@ page "*", :layout => :default
 ## Directories
 ###########################
 
+activate :livereload
+
 ## Templates
 activate :directory_indexes
 
