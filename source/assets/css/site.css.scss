@@ -13,8 +13,12 @@
 	height: 100%;
 	position: absolute;
 	background: url(/grid.png);
-	opacity: .5;
+	opacity: 0;
 	z-index: 100;
+	@include transition;
+	&.visible{
+		opacity: 0.5;
+	}
 }
 
 
