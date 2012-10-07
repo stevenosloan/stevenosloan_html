@@ -44,7 +44,7 @@ body{
 	min-width: 240px;
 	@include box-sizing;
 	float: left;
-	padding: ( $baseline * 2.466666666 ) 0 0 ( $baseline * 4 );
+	padding: ( $baseline * 3 ) 0 0 ( $baseline * 4 );
 	border-right: 1px solid $dark;
 	position: fixed;
 	top: 0;
@@ -54,28 +54,29 @@ body{
 		@include font-size-body;
 		@include sans;
 		color: $white;
+		line-height: $baseline;
 	}
 	nav{
 		margin-top: $baseline * 4;
-		a{
-			letter-spacing: .1em;
-			color: $white;
-			display: block;
-			margin-bottom: $baseline / 2;
-			padding-bottom: $baseline / 2;
-			border-bottom: 1px solid $dark;
-			@include transition( all, .2s, linear );
+	}
+	a{
+		letter-spacing: .1em;
+		color: $white;
+		display: block;
+		margin-bottom: $baseline / 2;
+		padding-bottom: ( ( $baseline / 2 ) - 1 );
+		border-bottom: 1px solid $dark;
+		@include transition( all, .2s, linear );
+		&:hover{
+			text-decoration: none;
+			color: #fff;
+			border-bottom: 1px solid $mid;
+		@include transition( all, .6s, linear );
+		}
+		&.is-here{
+			border-bottom: 1px solid $pop;
 			&:hover{
-				text-decoration: none;
-				color: #fff;
-				border-bottom: 1px solid $mid;
-			@include transition( all, .6s, linear );
-			}
-			&.is-here{
-				border-bottom: 1px solid $pop;
-				&:hover{
-					cursor: default;
-				}
+				cursor: default;
 			}
 		}
 	}
