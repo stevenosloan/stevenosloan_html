@@ -24,9 +24,19 @@ set :images_dir, 'assets/images'
 
 ## Ignore the source js files
 ignore "assets/scripts/src/*"
+set :markdown, :fenced_code_blocks => true, :autolink => true, :smartypants => true
 set :markdown_engine, :redcarpet
 
+# nasty hack
+$Application = self
 
+module Haml::Filters::Markdown
+  include Haml::Filters::Base
+  lazy_require 'redcarpet'
+  def render(text)
+    Redcarpet::Markdown.new(Redcarpet::Render::HTML, $Application.markdown).render(text)
+  end
+end
 
 ###########################
 ## Helpers
