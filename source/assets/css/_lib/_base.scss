@@ -13,8 +13,8 @@
 $dark: #2D3241;
 $mid: #9698A0;
 $light: #E1E2E4;
-$bright: #F4F4F5;
-$white: #f6f6f6;
+$bright: #F0F0F1;
+$white: #f7f7f8;
 
 $pop: #FFDD00;
 $highlight: #FFF6BF;
@@ -77,6 +77,11 @@ $title: 30px;
 	font-weight: 600;
 }
 
+@mixin sans-light{
+	font-family: "Source Sans Pro", "Helvetica Neue", Arial, Helvetica, sans-serif;
+	font-weight: 300;
+}
+
 @mixin monospace{
 	font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
 }
@@ -95,6 +100,7 @@ body{
 .title{
 	@include font-size-title;
 	@include sans;
+	color: $dark;
 }
 
 .body{
@@ -110,7 +116,7 @@ body{
 
 
 
-/*     Typography
+/*     Styles
 ----------------------------------------------------------------------------- */
 
 a{
@@ -118,6 +124,15 @@ a{
 	&:hover{
 		text-decoration: underline;
 	}
+}
+
+%callout-block{
+	padding: $baseline * 3 $baseline * 4;
+	background: $bright;
+	border-top: 1px solid $light;
+	border-bottom: 1px solid $light;
+	max-width: 100%;
+	margin: $baseline * 2 0 $baseline * 2 $baseline * -4;
 }
 
 %normalize{
@@ -132,5 +147,18 @@ a{
 		@include font-size-body;
 		color: $mid;
 		margin: $baseline 0 $baseline * 2 0;
+	}
+	pre{
+		@extend %callout-block;
+		code{
+			@include monospace;
+		}
+	}
+	blockquote{
+		@extend %callout-block;
+		p{
+			@include font-size-title;
+			@include sans-light;
+		}
 	}
 }

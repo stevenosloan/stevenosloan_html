@@ -87,7 +87,66 @@ body{
 	@include box-sizing;
 	padding-left: $baseline * 4;
 	width: 100% * 4/5;
-	margin-left: 20%;
+	margin-left: 100% * 1/5;
+}
+
+/*
+**
+**
+*/
+.post-nav{
+	border-bottom: 1px solid $light;
+	padding: $baseline * 2.5 0 $baseline/2 ( $baseline * 2 - 4 );
+	a{
+		color: $light;
+		@include font-size-body;
+		text-decoration: none;
+		@include transition;
+		&:before{
+			content: '\2190';
+			margin-right: $baseline;
+			position: relative;
+			bottom: .066666667em;
+		}
+		&:hover{
+			color: $mid;
+		}
+	}
+}
+
+
+/*
+**
+**
+*/
+.post{
+	padding-top: $baseline * 4;
+	hgroup{
+		padding-left: $baseline * 4;
+		.title{
+			margin: 0;
+		}
+		.body{
+			margin: $baseline / 2 0 $baseline 0;
+		}
+		&:after{
+			content: '';
+			display: block;
+			width: $baseline * 4;
+			height: $baseline;
+			background: $dark;
+			margin-top: 35px;
+		}
+	}
+}
+
+.post-content{
+	@extend %normalize;
+	padding-top: $baseline * 3.5;
+	padding-left: $baseline * 4;
+	*{
+		max-width: $baseline * 42;
+	}
 }
 
 
@@ -100,6 +159,9 @@ body{
 .post-list{
 	padding: $baseline * 8 0;
 	@extend %normalize;
+	.post{
+		padding-top: 0;
+	}
 	a{
 		display: block;
 		text-decoration: none;
