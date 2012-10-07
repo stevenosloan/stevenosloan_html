@@ -88,3 +88,43 @@ body{
 	width: 100% * 4/5;
 	margin-left: 20%;
 }
+
+
+/*
+**	.post-list
+**		%a
+**			%h1 Post Title
+**			%p Post Date
+*/
+.post-list{
+	margin-top: $baseline * 8;
+	@extend %normalize;
+	a{
+		display: block;
+		text-decoration: none;
+		padding: ( ( $baseline * 2 ) - 2 ) $baseline * 4;
+		border-bottom: 1px solid $light;
+			@include transition( background, .1s, ease-in-out );
+		&:first-of-type{
+			border-top: 1px solid $light;
+			margin-top: -1px;
+		}
+		&:hover{
+			@include transition( background, .3s, ease-in-out );
+			background: $light;
+			cursor: pointer;
+			position: relative;
+			z-index: 100;
+			margin-top: -1px;
+			border-color: $mid;
+			border-top: 1px solid $mid;
+		}
+		h1{
+			margin: 0;
+		}
+		p{
+			margin: 0;
+		}
+	}
+}
+	

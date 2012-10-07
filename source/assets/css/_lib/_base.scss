@@ -46,6 +46,8 @@ $highlight: #FFF6BF;
 /*     Typography
 ----------------------------------------------------------------------------- */
 
+@import "http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,600,300italic,600italic";
+
 $baseline: 15px;
 $small: 15px;
 $body: 18px;
@@ -71,7 +73,8 @@ $title: 30px;
 }
 
 @mixin sans{
-	font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+	font-family: "Source Sans Pro", "Helvetica Neue", Arial, Helvetica, sans-serif;
+	font-weight: 600;
 }
 
 @mixin monospace{
@@ -114,5 +117,20 @@ a{
 	text-decoration: none;
 	&:hover{
 		text-decoration: underline;
+	}
+}
+
+%normalize{
+	h1{
+		@include sans;
+		@include font-size-title;
+		color: $dark;
+		margin: 0 0 $baseline * 2 0;
+	}
+	p{
+		@include serif;
+		@include font-size-body;
+		color: $mid;
+		margin: $baseline 0 $baseline * 2 0;
 	}
 }
