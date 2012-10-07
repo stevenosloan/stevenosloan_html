@@ -50,14 +50,14 @@ body{
 	top: 0;
 	left: 0;
 	h1{
-		margin: 0;
+		margin: 0 0 ( ( $baseline / 2 ) - 1) 0;
 		@include font-size-body;
 		@include sans;
 		color: $white;
 		line-height: $baseline;
 	}
 	nav{
-		margin-top: $baseline * 4;
+		margin-top: $baseline * 4.5;
 	}
 	a{
 		letter-spacing: .1em;
@@ -98,12 +98,12 @@ body{
 **			%p Post Date
 */
 .post-list{
-	margin-top: $baseline * 8;
+	padding: $baseline * 8 0;
 	@extend %normalize;
 	a{
 		display: block;
 		text-decoration: none;
-		padding: ( ( $baseline * 2 ) - 2 ) $baseline * 4;
+		padding: ( $baseline * 2 - 1 ) ( $baseline * 4 ) ( $baseline * 2 ) ( $baseline * 4 );
 		border-bottom: 1px solid $light;
 			@include transition( background, .1s, ease-in-out );
 		&:first-of-type{
@@ -124,7 +124,7 @@ body{
 			margin: 0;
 		}
 		p{
-			margin: 0;
+			margin: $baseline / 2 0;
 		}
 	}
 }
