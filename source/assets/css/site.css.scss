@@ -44,6 +44,9 @@ body{
 	float: left;
 	padding: ( $baseline * 2.466666666 ) 0 0 ( $baseline * 4 );
 	border-right: 1px solid $dark;
+	position: fixed;
+	top: 0;
+	left: 0;
 	h1{
 		margin: 0;
 		@include font-size-body;
@@ -78,5 +81,8 @@ body{
 
 .content{
 	float: left;
+	@include box-sizing;
 	padding-left: $baseline * 4;
+	width: 100% * 4/5;
+	margin-left: 20%;
 }
