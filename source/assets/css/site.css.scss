@@ -94,11 +94,13 @@ body{
 		padding-bottom: ( ( $baseline / 2 ) - 1 );
 		border-bottom: 1px solid $dark;
 		@include transition( all, .2s, linear );
-		&:hover{
-			text-decoration: none;
-			color: #fff;
-			border-bottom: 1px solid $mid;
-		@include transition( all, .6s, linear );
+		@media screen and ( min-width: 42 * $baseline ){
+			&:hover{
+				text-decoration: none;
+				color: #fff;
+				border-bottom: 1px solid $mid;
+				@include transition( all, .6s, linear );
+			}
 		}
 		&.is-here{
 			border-bottom: 1px solid $pop;
