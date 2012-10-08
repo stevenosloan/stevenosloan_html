@@ -3,9 +3,13 @@
 ## Layouts
 ###########################
 
-## default
-page "*", :layout => :default
+activate :blog do |blog|
 
+  blog.prefix = "posts"
+  blog.permalink = ":year/:title.html"
+  blog.layout = "article_layout"
+
+end
 
 
 ###########################

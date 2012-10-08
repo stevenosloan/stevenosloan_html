@@ -1,0 +1,11 @@
+- wrap_layout :layout do
+
+	%nav.post-nav
+		%a{ :href => "/" } Back
+
+	%article.post
+		%hgroup
+			%h1.title= "#{lorem.words 5}".capitalize
+			%p.body= lorem.date
+		.post-content 
+			= yield
