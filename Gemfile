@@ -5,6 +5,7 @@ gem "rake"
 gem "colorize"
 gem "net-ssh-simple"
 gem "heroku"
+gem "foreman"
 gem "thin"
 
 ## middleman
