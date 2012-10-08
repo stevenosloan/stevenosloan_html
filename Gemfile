@@ -4,6 +4,8 @@ ruby "1.9.3"
 gem "rake"
 gem "colorize"
 gem "net-ssh-simple"
+gem "heroku"
+gem "foreman"
 
 ## middleman
 git "git://github.com/middleman/middleman.git" do
