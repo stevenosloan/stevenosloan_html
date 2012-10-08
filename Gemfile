@@ -15,7 +15,7 @@ git "git://github.com/middleman/middleman.git" do
   gem "middleman-more"
 end
 gem "middleman-sprockets", :git => "git://github.com/middleman/middleman-sprockets.git"
-gem "middleman-livereload"
+gem "middleman-livereload", :group => :development
 
 ## performance
 gem "redcarpet"
