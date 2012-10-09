@@ -5,7 +5,7 @@
 
 	%article.post
 		%hgroup
-			%h1.title= "#{lorem.words 5}".capitalize
-			%p.body= lorem.date
+			%h1.title= current_article.title
+			%p.body= current_article.date.strftime('%b %e, %Y')
 		.post-content 
 			= yield

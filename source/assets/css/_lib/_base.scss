@@ -51,6 +51,7 @@ $highlight: #FFF6BF;
 $baseline: 15px;
 $small: 15px;
 $body: 18px;
+$subtitle: 20px;
 $title: 30px;
 
 @mixin font-size-small{
@@ -61,6 +62,11 @@ $title: 30px;
 @mixin font-size-body{
 	font-size: $body;
 	line-height: $baseline * 2;
+}
+
+@mixin font-size-subtitle{
+	font-size: $subtitle;
+	line-height: $baseline * 3;
 }
 
 @mixin font-size-title{
@@ -147,6 +153,12 @@ a{
 		color: $dark;
 		margin: 0 0 $baseline * 2 0;
 	}
+	h2{
+		@include sans;
+		@include font-size-subtitle;
+		color: $dark;
+		margin: $baseline * 2 0 0 0;
+	}
 	p{
 		@include serif;
 		@include font-size-body;
@@ -157,6 +169,7 @@ a{
 		@extend %callout-block;
 		code{
 			@include monospace;
+			@include font-size-small;
 		}
 	}
 	blockquote{

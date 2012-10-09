@@ -33,6 +33,7 @@ html, body{
 
 body{
 	background: $white;
+	-webkit-font-smoothing: antialiased;
 }
 
 .site-navi{
@@ -227,7 +228,7 @@ body{
 		text-decoration: none;
 		padding: ( $baseline * 2 - 1 ) ( $baseline * 4 ) ( $baseline * 2 ) ( $baseline * 4 );
 		border-bottom: 1px solid $light;
-			@include transition( background, .1s, ease-in-out );
+			@include transition( background, .1s, linear );
 		@media screen and ( max-width: 42 * $baseline ){
 			padding-left: $baseline;
 			padding-right: $baseline;
@@ -237,8 +238,8 @@ body{
 			margin-top: -1px;
 		}
 		&:hover{
-			@include transition( background, .3s, ease-in-out );
-			background: $light;
+			@include transition( background, .2s, linear );
+			background: $bright;
 			cursor: pointer;
 			position: relative;
 			z-index: 100;
