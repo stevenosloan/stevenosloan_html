@@ -164,6 +164,9 @@ a{
 		@include font-size-body;
 		color: $mid;
 		margin: $baseline 0 $baseline * 2 0;
+		a{
+			color: $dark;
+		}
 	}
 	pre{
 		@extend %callout-block;
