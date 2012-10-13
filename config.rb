@@ -3,6 +3,8 @@
 ## Layouts
 ###########################
 
+page "/feed.xml", :layout => false
+
 activate :blog do |blog|
 
   blog.prefix = "posts"

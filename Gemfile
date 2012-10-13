@@ -7,6 +7,7 @@ gem "net-ssh-simple"
 gem "heroku"
 gem "foreman"
 gem "thin"
+gem "builder"
 
 ## middleman
 git "git://github.com/middleman/middleman.git" do
