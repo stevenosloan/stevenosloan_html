@@ -4,6 +4,7 @@
 ###########################
 
 page "/feed.xml", :layout => false
+page "/_lib/*", :layout => false
 
 activate :blog do |blog|
 
