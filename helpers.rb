@@ -14,7 +14,7 @@ module CustomHelpers
   end
 
   def page_class
-  	page_class = current_path.chomp( '/index.html' ).gsub( '/', '-' )
+  	page_class = File.dirname( current_path ).gsub( '/', '-' )
     ( page_class == "index.html" ) ? "page-home" : "page-#{page_class}"
   end
 
