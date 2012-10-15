@@ -8,7 +8,7 @@ page "/_lib/*", :layout => false
 
 activate :blog do |blog|
 
-  blog.prefix = "posts"
+  blog.prefix = "articles"
   blog.permalink = ":year/:title.html"
   blog.layout = "article_layout"
 
