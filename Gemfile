@@ -7,7 +7,6 @@ gem "net-ssh-simple"
 gem "heroku"
 gem "foreman"
 gem "thin"
-gem "builder"
 
 ## middleman
 git "git://github.com/middleman/middleman.git" do
@@ -18,8 +17,14 @@ end
 gem "middleman-sprockets", :git => "git://github.com/middleman/middleman-sprockets.git"
 gem "middleman-blog", :git => "git://github.com/middleman/middleman-blog.git"
 gem "middleman-livereload"
+gem "builder"
 
 ## performance
 gem "redcarpet"
 gem "oj"
 gem "therubyracer"
+
+## run php side-by-side
+gem 'rack'
+gem 'rack-legacy'
+gem 'rack-rewrite'
