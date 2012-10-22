@@ -127,6 +127,7 @@ body{
 
 a{
 	text-decoration: none;
+	color: $mid;
 	&:hover{
 		text-decoration: underline;
 	}

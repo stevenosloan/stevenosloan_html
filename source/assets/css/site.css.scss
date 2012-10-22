@@ -6,6 +6,7 @@
 **  TABLE OF CONTENTS
 **
 **  1. Page Elements
+**  2. Page Content
 */
 
 #grid{
@@ -223,10 +224,18 @@ body{
 */
 .post-list{
 	padding: $baseline * 8 0;
+	@extend %normalize;
 	@media screen and ( max-width: 42 * $baseline ){
 		padding: 0;
 	}
-	@extend %normalize;
+	> h2{
+		@include font-size-body;
+		@include serif;
+		font-weight: normal;
+		color: $mid;
+		padding-left: $baseline * 4;
+		margin-bottom: $baseline;
+	}
 	.post{
 		padding-top: 0;
 	}
@@ -262,6 +271,47 @@ body{
 		}
 	}
 }
-	
+
+/*     Page Content
+----------------------------------------------------------------------------- */
+.content-home{
+	@include box-sizing;
+	@extend %callout-block;
+	margin: 0;
+	padding-top: 52px;
+	*{
+		max-width: $baseline * 42;
+	}
+	.title{
+		font-size: $baseline * 4;
+		line-height: $baseline * 4;
+		margin-bottom: 28px;
+	}
+	a{
+		color: $dark;
+		opacity: 0.7;
+		@include transition;
+		&:hover{
+			opacity: 1.0;
+		}
+	}
+}
+
+.content-contact{
+	@include box-sizing;
+	@extend %callout-block;
+	margin: 0;
+	.title{
+		margin: $baseline 0 0 0;
+	}
+	a{
+		color: $dark;
+		opacity: 0.7;
+		@include transition;
+		&:hover{
+			opacity: 1.0;
+		}
+	}
+}
 
 @import "_lib/mediaqueries.scss";
