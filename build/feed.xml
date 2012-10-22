@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Steven Sloan | Designer &amp; Developer</title>
+  <subtitle>Musings on design and development</subtitle>
+  <id>http://stevenosloan.com/</id>
+  <link href="http://stevenosloan.com/"/>
+  <link href="http://stevenosloan.com/feed.xml" rel="self"/>
+  <updated>2012-10-20T00:00:00Z</updated>
+  <author>
+    <name>Steven Sloan</name>
+  </author>
+  <entry>
+    <title>When PHP and Middleman need to be friends</title>
+    <link rel="alternate" href="/articles/2012/run-php-on-rack/"/>
+    <id>/articles/2012/run-php-on-rack/</id>
+    <published>2012-10-20T00:00:00Z</published>
+    <updated>2012-10-20T00:00:00Z</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <summary type="html">&lt;p&gt;We can&amp;#39;t &lt;em&gt;always&lt;/em&gt; use the new shiny toys, and sometimes the new toys even need to play nice with the old dusty ones. This happens even more often (it seems) when using a ruby static site generator (be it &lt;a href="https://github.com/blahed/frank"&gt;frank&lt;/a&gt;, &lt;a href="http://middlemanapp.com/"&gt;middleman&lt;/a&gt;, &lt;a href="http://nestacms.com/"&gt;nesta&lt;/a&gt;, whatever), the intended purpose is to generate static .html files and deploy them to be served via ngnix, apache, w/e - but sometimes we need at least a &lt;em&gt;little&lt;/em&gt; bit of server side code to be run, like on contact forms, and PHP is the most ubiquitous/cheap tech to do that with.&lt;/p&gt;
+</summary>
+    <content type="html">&lt;p&gt;We can&amp;#39;t &lt;em&gt;always&lt;/em&gt; use the new shiny toys, and sometimes the new toys even need to play nice with the old dusty ones. This happens even more often (it seems) when using a ruby static site generator (be it &lt;a href="https://github.com/blahed/frank"&gt;frank&lt;/a&gt;, &lt;a href="http://middlemanapp.com/"&gt;middleman&lt;/a&gt;, &lt;a href="http://nestacms.com/"&gt;nesta&lt;/a&gt;, whatever), the intended purpose is to generate static .html files and deploy them to be served via ngnix, apache, w/e - but sometimes we need at least a &lt;em&gt;little&lt;/em&gt; bit of server side code to be run, like on contact forms, and PHP is the most ubiquitous/cheap tech to do that with.&lt;/p&gt;
+
+&lt;p&gt;I&amp;#39;ll walk through my process of getting PHP to play nice with &lt;a href="http://middlemanapp.com"&gt;middleman&lt;/a&gt;, so YMMV on other generators but the principles should be the same.&lt;/p&gt;
+
+&lt;h2&gt;Setting things up&lt;/h2&gt;
+
+&lt;p&gt;As always, a couple things are required to get started.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Add &lt;a href="https://github.com/eric1234/rack-legacy"&gt;rack-legacy&lt;/a&gt; and &lt;a href="https://github.com/jtrupiano/rack-rewrite#readme"&gt;rack-rewrite&lt;/a&gt; to your gemfile and install them&lt;/li&gt;
+&lt;li&gt;Install php with the cgi extension, &lt;a href="https://github.com/josegonzalez/homebrew-php"&gt;this homebrew formula&lt;/a&gt; makes it easy&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;## ./config.rb
+unless self.build?
+
+    source_dir = File.join( Dir.pwd, &amp;#39;source&amp;#39; )
+    build_dir = File.join( Dir.pwd, &amp;#39;build&amp;#39; )
+
+    require &amp;#39;rack&amp;#39;
+    require &amp;#39;rack-legacy&amp;#39;
+    require &amp;#39;rack-rewrite&amp;#39;
+
+    use Rack::Rewrite do
+      rewrite %r{(.*/$)}, lambda {|match, rack_env|
+
+        ## if the file exists in source, serve it
+        if File.exists?( File.join( source_dir, rack_env[&amp;#39;PATH_INFO&amp;#39;], &amp;#39;index.php&amp;#39; ) )
+          return File.join( &amp;#39;source&amp;#39;, rack_env[&amp;#39;PATH_INFO&amp;#39;] + &amp;#39;index.php&amp;#39; )
+
+        ## else if it only exists in build, build it
+        elsif File.exists?( File.join( build_dir, rack_env[&amp;#39;PATH_INFO&amp;#39;], &amp;#39;index.php&amp;#39; ) )
+
+            ## remove the leading &amp;#39;/&amp;#39; from name
+            file = File.join( rack_env[&amp;#39;PATH_INFO&amp;#39;], &amp;#39;index.php&amp;#39; )
+            file[0] = &amp;quot;&amp;quot;
+
+            ## build the requested file
+            puts &amp;quot;building: #{File.join( &amp;#39;build&amp;#39;, rack_env[&amp;#39;PATH_INFO&amp;#39;], &amp;#39;index.php&amp;#39; )}&amp;quot;
+            %x[ middleman build -g #{file} ]
+
+            ## pass the path on
+            return File.join( &amp;#39;build&amp;#39;, rack_env[&amp;#39;PATH_INFO&amp;#39;], &amp;#39;index.php&amp;#39; )
+
+        ## else it&amp;#39;s an html file, so pass that on
+        else
+            return rack_env[&amp;#39;PATH_INFO&amp;#39;]
+        end
+      }
+
+    end
+
+    use Rack::Legacy::Php, Dir.pwd
+
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Basic flow here is saying: If the .php file is in the source - use that. Otherwise look for a php file in the build directory, if it&amp;#39;s there, build that file and server it. If it&amp;#39;s in neither place, let middleman&amp;#39;s server do its thing.&lt;/p&gt;
+
+&lt;p&gt;It&amp;#39;s not ideal as you have to wait for a build to see those pages and at least on this setup (with directory indexes on) it only works with index.php files. Big upside though, those pages making use of php (even the ones using templates) are served with the preview server, and forms/etc can post to them. &lt;/p&gt;
+
+&lt;p&gt;I&amp;#39;m definitely looking to improve the process, so look for updates in the future.&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>Heroku as a staging environment for static generators</title>
+    <link rel="alternate" href="/articles/2012/stage-middleman-sites-on-heroku/"/>
+    <id>/articles/2012/stage-middleman-sites-on-heroku/</id>
+    <published>2012-10-09T00:00:00Z</published>
+    <updated>2012-10-09T00:00:00Z</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <summary type="html">&lt;p&gt;At MailChimp we make heavy use of &lt;a href="http://blog.mailchimp.com/building-the-new-mailchimp/"&gt;static site generators&lt;/a&gt;, which is fantastic. We get to use the latest, shiniest toys developing the sites and still have a stable, blistering fast deployed site.&lt;/p&gt;
+</summary>
+    <content type="html">&lt;p&gt;At MailChimp we make heavy use of &lt;a href="http://blog.mailchimp.com/building-the-new-mailchimp/"&gt;static site generators&lt;/a&gt;, which is fantastic. We get to use the latest, shiniest toys developing the sites and still have a stable, blistering fast deployed site.&lt;/p&gt;
+
+&lt;p&gt;We have to wait for the site to build with each change though (though we&amp;#39;ve gotten that down to around 90 seconds so it&amp;#39;s not too bad), and often want to stage a feature branch to either show somebody quickly (&lt;em&gt;will&lt;/em&gt; be making changes and don&amp;#39;t feel like waiting for a build), or test it in a few browsers or devices.&lt;/p&gt;
+
+&lt;p&gt;So lately I&amp;#39;ve been thinking it would be great to stage feature branches on heroku and use the same dynamic servers we use to preview on our dev boxes. It turns out that this was really no sweat after getting past a couple pain points.&lt;/p&gt;
+
+&lt;p&gt;I&amp;#39;m going to assume you have at least a basic knowledge of running your ruby application and deploying to heroku. So lets dive in.&lt;/p&gt;
+
+&lt;h2&gt;Getting Started&lt;/h2&gt;
+
+&lt;p&gt;At first I thought things might be as simple as adding a Procfile to kickoff the server, but that turned out not to be the case. Heroku needs to understand how to mount the underlying rack app – simple fix though.&lt;/p&gt;
+
+&lt;p&gt;In this case I&amp;#39;m using Middleman, so depending on your project things may be a little different, but we’ll need to do a couple things to get the Middleman server running on Heroku.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;add a &amp;#39;config.ru&amp;#39; file to tell rack how to run the app&lt;/li&gt;
+&lt;li&gt;add thin and foreman to our gemfile&lt;/li&gt;
+&lt;li&gt;add a Procfile to tell heroku how to start the app&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code&gt;# Gemfile
+gem &amp;quot;thin&amp;quot;
+gem &amp;quot;foreman&amp;quot;
+
+# Procfile
+web: bundle exec thin start -R config.ru -p $PORT
+
+# config.ru
+require &amp;#39;rubygems&amp;#39;
+require &amp;#39;middleman&amp;#39;
+require &amp;#39;middleman-blog&amp;#39;
+
+run Middleman.server
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You might notice the addition of &amp;#39;middleman-blog&amp;#39; to the config.ru. I&amp;#39;m running the blog engine, so it&amp;#39;s necessary to get things working. Once you&amp;#39;ve made these couple changes you should be able to deploy to heroku and have a working app, YMMV with other apps though. (I&amp;#39;ll probably add docs for &lt;a href="https://github.com/blahed/frank"&gt;frank&lt;/a&gt; when I get things running for it)&lt;/p&gt;
+
+&lt;p&gt;Locally you can use the foreman gem to simulate the heroku environment on your dev machine - just run &lt;code&gt;foreman start&lt;/code&gt; and the app should mount on port 5000.&lt;/p&gt;
+
+&lt;h2&gt;Wait, wasn’t the goal testing feature branches?&lt;/h2&gt;
+
+&lt;p&gt;You caught me, without a little more work all we&amp;#39;d have is the master branch running on heroku.&lt;/p&gt;
+
+&lt;p&gt;The standard way you would push to heroku would be with &amp;#39;git push heroku&amp;#39;, but that pushes the master branch to heroku – not what we want in this case. That&amp;#39;s ok though, with a little git magic we can push a specific feature branch and overwrite the master branch on heroku.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# Push master to master
+$ git push heroku
+
+# Push a feature branch to master
+$ git push -f heroku #{branch}:refs/heads/master
+
+# Rakefile
+desc &amp;quot;stage the chosen branch&amp;quot;
+task :stage, :branch do |t, args|
+  branch = args[:branch]
+    system &amp;quot;git push -f heroku #{branch}:refs/heads/master&amp;quot;
+end
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I included the rake task I use to make this a little easier as well. For example to stage the &amp;#39;foo&amp;#39; branch you’d call  &amp;#39;rake stage[foo]&amp;#39;&lt;/p&gt;
+</content>
+  </entry>
+</feed>
