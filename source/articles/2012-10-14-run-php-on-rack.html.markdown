@@ -3,9 +3,9 @@ title: When PHP and Middleman need to be friends
 date: 2012/10/14
 ---
 
-We can't *always* use the new shiny toys, and sometimes the new toys even need to play nice with the old dusty ones. This happens even more often (it seems) when using a ruby static site generator (be it [frank](https://github.com/blahed/frank), [middleman](http://middlemanapp.com/), [nesta](http://nestacms.com/), whatever), the intended purpose is to generate static .html files and deploy them to be served - but sometimes we need atleast a *little* bit of server side code to be run, like on comment forms, and PHP is the most ubiquitous/cheap tech to do that with.
+We can't *always* use the new shiny toys, and sometimes the new toys even need to play nice with the old dusty ones. This happens even more often (it seems) when using a ruby static site generator (be it [frank](https://github.com/blahed/frank), [middleman](http://middlemanapp.com/), [nesta](http://nestacms.com/), whatever), the intended purpose is to generate static .html files and deploy them to be served via ngnix, apache, w/e - but sometimes we need at least a *little* bit of server side code to be run, like on contact forms, and PHP is the most ubiquitous/cheap tech to do that with.
 
-I'll walk through my process of getting PHP setup on [middleman](http://middlemanapp.com), so YMMV on other generators but the principles should be the same.
+I'll walk through my process of getting PHP to play nice with [middleman](http://middlemanapp.com), so YMMV on other generators but the principles should be the same.
 
 ## Setting things up
 
@@ -60,8 +60,8 @@ unless self.build?
 end
 ```
 
+Basic flow here is saying: If the .php file is in the source - use that. Otherwise look for a php file in the build directory, if it's there, build that file and server it. If it's in neither place, let middleman's server do its thing.
 
-using the same layouts as the rest of our template files.
+It's not ideal as you have to wait for a build to see those pages and at least on this setup (with directory indexes on) it only works with index.php files. Big upside though, those pages making use of php (even the ones using templates) are served with the preview server, and forms/etc can post to them. 
 
-
-It's not ideal as you have to wait for a build to see those pages and at least on this setup (with directory indexes on) it only works with index.php files. Big upside though, those pages making use of php are served with the preview server, and forms/etc can post to them. I'd love it if you could (well, if I could figure out how to) mount middleman as middleware and run the pages the preview server is serving as executable php.
+I'm definitely looking to improve the process, so look for updates in the future.
