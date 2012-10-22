@@ -116,6 +116,7 @@ body{
 	float: left;
 	@include box-sizing;
 	padding-left: $baseline * 4;
+	padding-bottom: $baseline * 4;
 	width: 100% * 4/5;
 	margin-left: 100% * 1/5;
 	@media screen and ( max-width: 60 * $baseline ){
@@ -198,6 +199,12 @@ body{
 	padding-left: $baseline * 4;
 	*{
 		max-width: $baseline * 42;
+	}
+	p{
+		margin-right: $baseline * 2;
+		@media screen and ( max-width: 42 * $baseline ){
+			margin-right: 0;
+		}
 	}
 	@media screen and ( max-width: 42 * $baseline ){
 		@include box-sizing;

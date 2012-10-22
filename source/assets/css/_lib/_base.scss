@@ -170,9 +170,11 @@ a{
 	}
 	pre{
 		@extend %callout-block;
+		overflow: auto;
 		code{
 			@include monospace;
 			@include font-size-small;
+			white-space: pre;
 		}
 	}
 	blockquote{
