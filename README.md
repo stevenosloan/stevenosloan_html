@@ -7,8 +7,12 @@ Dependencies
 - [Bundler](http://gembundler.com/)
 
 
-Project Init
----------
+Initial Install
+---------------
 
-    bundle install
-    bundle exec middleman server
+```bash
+$ bundle install
+```
+
+Rake Tasks
+----------
