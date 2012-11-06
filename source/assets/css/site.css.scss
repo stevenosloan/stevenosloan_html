@@ -43,7 +43,6 @@ body{
 	display: block;
 	min-height: 100%;
 	width: 100% * 1/5;
-	min-width: 240px;
 	@include box-sizing;
 	float: left;
 	padding: ( $baseline * 3 ) 0 0 ( $baseline * 4 );
@@ -116,7 +115,6 @@ body{
 .content{
 	float: left;
 	@include box-sizing;
-	padding-left: $baseline * 4;
 	padding-bottom: $baseline * 4;
 	width: 100% * 4/5;
 	margin-left: 100% * 1/5;
@@ -129,6 +127,9 @@ body{
 		padding: 0;
 		width: 100%;
 		margin-left: 0;
+	}
+	.page-home &{
+		padding-bottom: 0;
 	}
 }
 
@@ -255,13 +256,13 @@ body{
 		}
 		&:hover{
 			@include transition( background, .2s, linear );
-			background: $bright;
+			background: mix( $light, $white, 40% );
 			cursor: pointer;
 			position: relative;
 			z-index: 100;
 			margin-top: -1px;
-			border-color: $mid;
-			border-top: 1px solid $mid;
+			border-color: mix( $light, $mid, 50% );
+			border-top: 1px solid mix( $light, $mid, 50% );
 		}
 		h1{
 			margin: 0;

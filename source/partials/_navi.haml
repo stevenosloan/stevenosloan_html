@@ -8,4 +8,4 @@
 		
 		-# %a{ :href => "/projects/", :class => ( current_path.include? "projects" ) ? "is-here" : "" } projects
 		
-		%a{ :href => "#anchor-contact", :class => ( current_path.include? "contact" ) ? "is-here" : "" } contact
+		%a{ :href => ( current_path == "index.html" ) ? "#anchor-contact" : "/#anchor-contact", :class => ( current_path.include? "contact" ) ? "is-here" : "" } contact
