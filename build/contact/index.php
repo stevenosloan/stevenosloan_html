@@ -11,7 +11,7 @@
     <meta content='7KgHTNkMMzdgvgz_Jbb_uNkC18FuunUTvC7MxXWRVRo' name='google-site-verification' />
     <link href='/feed.xml' rel='alternate' title='Steven Sloan | Designer &amp; Developer' type='application/rss+xml' />
     <title>Contact | Steven Sloan | Steven Sloan</title>
-    <link href="/assets/css/site-58a8412c.css" media="screen" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/site-3ecfc4f1.css" media="screen" rel="stylesheet" type="text/css" />
     <script src="/assets/scripts/init-67cf6598.js" type="text/javascript"></script>
     <script type='text/javascript'>
       Modernizr.load([ ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js']);
@@ -30,7 +30,7 @@
       </a>
       <nav>
         <a class='' href='#anchor-articles'>articles</a>
-        <a class='is-here' href='#anchor-contact'>contact</a>
+        <a class='is-here' href='/#anchor-contact'>contact</a>
       </nav>
     </header>
     <section class='content'>
