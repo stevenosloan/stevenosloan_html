@@ -1,5 +1,3 @@
-require 'net/ssh'
-require 'net/ssh/simple'
 require 'colorize'
 
 desc 'build site'
@@ -34,6 +32,9 @@ end
 
 desc "deploy to prod"
 task :deploy do
+
+  require 'net/ssh' 
+  require 'net/ssh/simple'
 
   @host = 'stevenosloan_html'
   @location = 'webapps/stevenosloan_html'
