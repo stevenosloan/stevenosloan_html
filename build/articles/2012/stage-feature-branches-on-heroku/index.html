@@ -7,7 +7,7 @@
     <meta content='IE=Edge,chrome=1' http-equiv='X-UA-Compatible' />
     <meta content='7KgHTNkMMzdgvgz_Jbb_uNkC18FuunUTvC7MxXWRVRo' name='google-site-verification' />
     <link href='/feed.xml' rel='alternate' title='Steven Sloan | Designer &amp; Developer' type='application/rss+xml' />
-    <title>Articles | Steven Sloan | Steven Sloan</title>
+    <title>Stage Feature Branches on Heroku | Steven Sloan</title>
     <link href="/assets/css/site-3ecfc4f1.css" media="screen" rel="stylesheet" type="text/css" />
     <script src="/assets/scripts/init-67cf6598.js" type="text/javascript"></script>
     <script type='text/javascript'>
@@ -20,7 +20,7 @@
     </script>
     
   </head>
-  <body class='page-articles'>
+  <body class='page-articles/2012/stage-feature-branches-on-heroku'>
     <header class='site-navi'>
       <a class='site-title' href='/'>
         <h1>Steven Sloan</h1>
@@ -31,21 +31,36 @@
       </nav>
     </header>
     <section class='content'>
-      <nav class='post-list'>
-        <a href='/articles/2012/run-php-on-rack/'>
-          <article class='post'>
-            <h1>A Method for Using PHP with Middleman</h1>
-            <p>Oct 20, 2012</p>
-          </article>
-        </a>
-        <a href='/articles/2012/stage-feature-branches-on-heroku/'>
-          <article class='post'>
-            <h1>Stage Feature Branches on Heroku</h1>
-            <p>Oct  9, 2012</p>
-          </article>
-        </a>
-      </nav>
+      <nav class='post-nav'>
+  <a href='/'>Back</a>
+</nav>
+<article class='post'>
+  <hgroup>
+    <h1 class='title'>Stage Feature Branches on Heroku</h1>
+    <p class='body'>Oct  9, 2012</p>
+  </hgroup>
+  <div class='post-content'>
+    <p>At MailChimp we make heavy use of <a href="http://blog.mailchimp.com/building-the-new-mailchimp/">static site generators</a>, which is fantastic. We get to use the latest, shiniest toys developing the sites and still have a stable, blistering fast deployed site.</p>
+
+<p>Often we&#39;re building out new pages or trying out new layouts and need to stage them. Heroku provides a nice quick way to stage an app, but only builds the master branch by default. There&#39;s an easy way around this pushing the current branch as master, but a short rake task makes this even easier.</p>
+
+<pre><code># Push master to master
+$ git push heroku
+
+# Push a feature branch to master
+$ git push -f heroku #{branch}:refs/heads/master
+
+# Rakefile
+desc &quot;stage the chosen branch&quot;
+task :stage, :branch do |t, args|
+  branch = args[:branch]
+    system &quot;git push -f heroku #{branch}:refs/heads/master&quot;
+end
+</code></pre>
+  </div>
+</article>
     </section>
     <div id='grid'></div>
   </body>
 </html>
+
