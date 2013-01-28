@@ -135,7 +135,6 @@ a{
 
 %callout-block{
 	padding: $baseline * 3 $baseline * 4;
-	background: $bright;
 	border-top: 1px solid $light;
 	border-bottom: 1px solid $light;
 	max-width: 100%;
@@ -171,6 +170,7 @@ a{
 	}
 	pre{
 		@extend %callout-block;
+		background: $bright;
 		overflow: auto;
 		code{
 			@include monospace;
