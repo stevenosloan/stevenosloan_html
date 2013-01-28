@@ -1,3 +1,5 @@
+# Add ./lib to the load path
+$LOAD_PATH << File.join( Dir.pwd, '/lib' )
 
 ###########################
 ## Layouts
@@ -19,6 +21,7 @@ end
 ## Directories
 ###########################
 
+require 'middleman-livereload'
 activate :livereload
 
 ## Templates
@@ -96,7 +99,7 @@ end
 ## Helpers
 ###########################
 
-require 'helpers'
+require 'customhelpers'
 helpers CustomHelpers
 
 
