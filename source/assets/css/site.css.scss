@@ -275,6 +275,13 @@ body{
 
 /*     Page Content
 ----------------------------------------------------------------------------- */
+
+.notice {
+	max-width: 100%;
+	@extend %callout-block;
+	background: $highlight;
+}
+
 .content-home{
 	@include box-sizing;
 	@extend %callout-block;

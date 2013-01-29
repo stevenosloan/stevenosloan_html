@@ -3,6 +3,10 @@ title: A Method for Using PHP with Middleman
 date: 2012/10/20
 ---
 
+<div class="notice">
+	Admitedly this is a bit of a hack, look for a cleaner method in the future.
+</div>
+
 We can't *always* use the new shiny toys, and sometimes the new toys even need to play nice with the old dusty ones. This happens even more often (it seems) when using a ruby static site generator (be it [frank](https://github.com/blahed/frank), [middleman](http://middlemanapp.com/), [nesta](http://nestacms.com/), whatever), the intended purpose is to generate static .html files and deploy them to be served via ngnix, apache, w/e - but sometimes we need at least a *little* bit of server side code to be run, like on contact forms, and PHP is the most ubiquitous/cheap tech to do that with.
 
 I'll walk through my process of getting PHP to play nice with [middleman](http://middlemanapp.com), so YMMV on other generators but the principles should be the same.
