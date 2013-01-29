@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Steven Sloan | Designer &amp; Developer</title>
-  <subtitle>Musings on design and development</subtitle>
+  <subtitle>Thoughts on design and development</subtitle>
   <id>http://stevenosloan.com/</id>
   <link href="http://stevenosloan.com/"/>
   <link href="http://stevenosloan.com/feed.xml" rel="self"/>
@@ -18,9 +18,17 @@
     <author>
       <name>Article Author</name>
     </author>
-    <summary type="html">&lt;p&gt;We can&amp;#39;t &lt;em&gt;always&lt;/em&gt; use the new shiny toys, and sometimes the new toys even need to play nice with the old dusty ones. This happens even more often (it seems) when using a ruby static site generator (be it &lt;a href="https://github.com/blahed/frank"&gt;frank&lt;/a&gt;, &lt;a href="http://middlemanapp.com/"&gt;middleman&lt;/a&gt;, &lt;a href="http://nestacms.com/"&gt;nesta&lt;/a&gt;, whatever), the intended purpose is to generate static .html files and deploy them to be served via ngnix, apache, w/e - but sometimes we need at least a &lt;em&gt;little&lt;/em&gt; bit of server side code to be run, like on contact forms, and PHP is the most ubiquitous/cheap tech to do that with.&lt;/p&gt;
+    <summary type="html">&lt;div class="notice"&gt;
+    Admitedly this is a bit of a hack, look for a cleaner method in the future.
+&lt;/div&gt;
+
+&lt;p&gt;We can&amp;#39;t &lt;em&gt;always&lt;/em&gt; use the new shiny toys, and sometimes the new toys even need to play nice with the old dusty ones. This happens even more often (it seems) when using a ruby static site generator (be it &lt;a href="https://github.com/blahed/frank"&gt;frank&lt;/a&gt;, &lt;a href="http://middlemanapp.com/"&gt;middleman&lt;/a&gt;, &lt;a href="http://nestacms.com/"&gt;nesta&lt;/a&gt;, whatever), the intended purpose is to generate static .html files and deploy them to be served via ngnix, apache, w/e - but sometimes we need at least a &lt;em&gt;little&lt;/em&gt; bit of server side code to be run, like on contact forms, and PHP is the most ubiquitous/cheap tech to do that with.&lt;/p&gt;
 </summary>
-    <content type="html">&lt;p&gt;We can&amp;#39;t &lt;em&gt;always&lt;/em&gt; use the new shiny toys, and sometimes the new toys even need to play nice with the old dusty ones. This happens even more often (it seems) when using a ruby static site generator (be it &lt;a href="https://github.com/blahed/frank"&gt;frank&lt;/a&gt;, &lt;a href="http://middlemanapp.com/"&gt;middleman&lt;/a&gt;, &lt;a href="http://nestacms.com/"&gt;nesta&lt;/a&gt;, whatever), the intended purpose is to generate static .html files and deploy them to be served via ngnix, apache, w/e - but sometimes we need at least a &lt;em&gt;little&lt;/em&gt; bit of server side code to be run, like on contact forms, and PHP is the most ubiquitous/cheap tech to do that with.&lt;/p&gt;
+    <content type="html">&lt;div class="notice"&gt;
+    Admitedly this is a bit of a hack, look for a cleaner method in the future.
+&lt;/div&gt;
+
+&lt;p&gt;We can&amp;#39;t &lt;em&gt;always&lt;/em&gt; use the new shiny toys, and sometimes the new toys even need to play nice with the old dusty ones. This happens even more often (it seems) when using a ruby static site generator (be it &lt;a href="https://github.com/blahed/frank"&gt;frank&lt;/a&gt;, &lt;a href="http://middlemanapp.com/"&gt;middleman&lt;/a&gt;, &lt;a href="http://nestacms.com/"&gt;nesta&lt;/a&gt;, whatever), the intended purpose is to generate static .html files and deploy them to be served via ngnix, apache, w/e - but sometimes we need at least a &lt;em&gt;little&lt;/em&gt; bit of server side code to be run, like on contact forms, and PHP is the most ubiquitous/cheap tech to do that with.&lt;/p&gt;
 
 &lt;p&gt;I&amp;#39;ll walk through my process of getting PHP to play nice with &lt;a href="http://middlemanapp.com"&gt;middleman&lt;/a&gt;, so YMMV on other generators but the principles should be the same.&lt;/p&gt;
 
