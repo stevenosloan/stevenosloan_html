@@ -84,6 +84,7 @@ body{
   @extend %col;
   @extend %span1of3;
   border-right: 6px solid $pop;
+  vertical-align: middle;
   .site-title{
     h1{
       margin: 0 0 ( ( $baseline / 2 ) - 1) 0;
@@ -106,6 +107,11 @@ body{
       color: $black;
     }
   }
+}
+
+.page-title {
+  @extend .content;
+  vertical-align: middle;
 }
 
 /*
