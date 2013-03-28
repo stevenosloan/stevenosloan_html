@@ -14,15 +14,10 @@ title: "Steven Sloan | Designer &amp; Developer in Atlanta"
 
 %nav.post-list#anchor-articles
 
-  %h2 Recent Articles:
+  %h2 Recent Writing:
 
   - blog.articles.each do |article|
     %a{ :href => "#{article.url}" }
       %article.post
         %h1= article.title
         %p= article.date.strftime('%b %e, %Y')
-
-%article.content-contact#anchor-contact
-
-  %h1.title Get in Touch
-  %p.body You can find me on <a href="https://github.com/stevenosloan">GitHub</a> or <a href="http://twitter.com/stevenosloan">Twitter</a>

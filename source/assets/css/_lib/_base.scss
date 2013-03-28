@@ -10,15 +10,6 @@
 /*     Colors
 ----------------------------------------------------------------------------- */
 
-$dark: #2D3241;
-$mid: #9698A0;
-$light: #E1E2E4;
-$bright: #F0F0F1;
-$white: #f7f7f8;
-
-$pop: #FFDD00;
-$highlight: #FFF6BF;
-
 @include select-color( $highlight );
 
 /*
@@ -46,14 +37,6 @@ $highlight: #FFF6BF;
 /*     Typography
 ----------------------------------------------------------------------------- */
 
-@import "http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,600,300italic,600italic";
-
-$baseline: 15px;
-$small: 15px;
-$body: 18px;
-$subtitle: 20px;
-$title: 30px;
-
 @mixin font-size-small{
   font-size: $small;
   line-height: $baseline;
@@ -79,14 +62,9 @@ $title: 30px;
 }
 
 @mixin sans{
-  font-family: "Source Sans Pro", "Helvetica Neue", Arial, Helvetica, sans-serif;
-  font-weight: 600;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
 }
 
-@mixin sans-light{
-  font-family: "Source Sans Pro", "Helvetica Neue", Arial, Helvetica, sans-serif;
-  font-weight: 300;
-}
 
 @mixin monospace{
   font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
@@ -97,10 +75,10 @@ $title: 30px;
 **  Start Classes
 */
 
-body{
+body {
   @include font-size-body;
   @include serif;
-  color: $mid;
+  color: $dark;
 }
 
 .title{
@@ -127,7 +105,7 @@ body{
 
 a{
   text-decoration: none;
-  color: $mid;
+  color: inherit;
   &:hover{
     text-decoration: underline;
   }
@@ -182,7 +160,7 @@ a{
     @extend %callout-block;
     p{
       @include font-size-title;
-      @include sans-light;
+      @include sans;
     }
   }
 }

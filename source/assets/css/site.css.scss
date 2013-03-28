@@ -1,4 +1,5 @@
 @import "_lib/normalize.scss";
+@import "_lib/$variables.scss";
 @import "_lib/@mixins.scss";
 @import "_lib/base.scss";
 
@@ -9,65 +10,85 @@
 **  2. Page Content
 */
 
-#grid{
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  background: url(/grid.png);
-  opacity: 0;
-  z-index: -1;
-  @include transition;
-  pointer-events: none;
-  &.visible{
-    opacity: 0.5;
-    z-index: 100;
-  }
+
+/*    Layout
+----------------------------------------------- */
+
+
+/*
+**  Columns for the grid
+**
+*/
+%col {
+  padding-left: $gutter;
+  padding-right: $gutter;
+  display: inline-block;
+  @include box-sizing;
+  vertical-align: top;
+}
+
+.col {
+  @extend %col;
+}
+
+/*
+**  Spans for the grid
+**
+*/
+%span1of1 { width: percentage(1/1); }
+%span1of2 { width: percentage(1/2); }
+%span1of3 { width: percentage(1/3); }
+%span2of3 { width: percentage(2/3); }
+%span1of4 { width: percentage(1/4); }
+%span2of4 { width: percentage(2/4); }
+%span3of4 { width: percentage(3/4); }
+
+.span1of1 { @extend %span1of1; }
+.span1of2 { @extend %span1of2; }
+.span1of3 { @extend %span1of3; }
+.span2of3 { @extend %span2of3; }
+.span1of4 { @extend %span1of4; }
+.span2of4 { @extend %span2of4; }
+.span3of4 { @extend %span3of4; }
+
+
+/*
+**
+*/
+.wrapper {
+  width: 90%;
+  max-width: 1008px;
+  margin: 0 auto;
+}
+
+.content {
+  @extend %col;
+  @extend %span2of3;
 }
 
 
 /*     Page Elements
 ----------------------------------------------------------------------------- */
+
 html, body{
   width: 100%;
   height: 100%;
 }
 
 body{
-  background: $white;
+  background: $light;
   -webkit-font-smoothing: antialiased;
 }
 
 .site-navi{
-  background: $dark;
-  color: $white;
-  display: block;
-  min-height: 100%;
-  width: 100% * 1/5;
-  @include box-sizing;
-  float: left;
-  padding: ( $baseline * 3 ) 0 0 ( $baseline * 4 );
-  border-right: 1px solid $dark;
-  position: fixed;
-  top: 0;
-  left: 0;
-  @media screen and ( max-width: 60 * $baseline ){
-    padding-left: $baseline;
-    width: 100% * 1/4;
-    min-width: 0;
-  }
-  @media screen and ( max-width: 42 * $baseline ){
-    position: relative;
-    width: 100%;
-    height: auto;
-    min-height: 0;
-    padding: $baseline 0 0 $baseline;
-  }
+  @extend %col;
+  @extend %span1of3;
+  border-right: 6px solid $pop;
   .site-title{
     h1{
       margin: 0 0 ( ( $baseline / 2 ) - 1) 0;
       @include font-size-body;
       @include sans;
-      color: $white;
       line-height: $baseline;
     }
     @media screen and ( max-width: 42 * $baseline ){
@@ -79,57 +100,11 @@ body{
       }
     }
   }
-  nav{
-    margin-top: $baseline * 4.5;
-    @media screen and ( max-width: 42 * $baseline ){
-      margin: 0;
-      width: 50%;
-      float: left;
-    }
-  }
   a{
-    letter-spacing: .1em;
-    color: $white;
-    display: block;
-    margin-bottom: $baseline / 2;
-    padding-bottom: ( ( $baseline / 2 ) - 1 );
-    border-bottom: 1px solid $dark;
-    @include transition( all, .2s, linear );
-    @media screen and ( min-width: 42 * $baseline ){
-      &:hover{
-        text-decoration: none;
-        color: #fff;
-        border-bottom: 1px solid $mid;
-        @include transition( all, .6s, linear );
-      }
+    color: $dark;
+    &:hover {
+      color: $black;
     }
-    &.is-here{
-      border-bottom: 1px solid $pop;
-      &:hover{
-        cursor: default;
-      }
-    }
-  }
-}
-
-.content{
-  float: left;
-  @include box-sizing;
-  padding-bottom: $baseline * 4;
-  width: 100% * 4/5;
-  margin-left: 100% * 1/5;
-  @media screen and ( max-width: 60 * $baseline ){
-    padding-left: 0;
-    width: 100% * 3/4;
-    margin-left: 100% * 1/4;
-  }
-  @media screen and ( max-width: 42 * $baseline ){
-    padding: 0;
-    width: 100%;
-    margin-left: 0;
-  }
-  .page-home &{
-    padding-bottom: 0;
   }
 }
 

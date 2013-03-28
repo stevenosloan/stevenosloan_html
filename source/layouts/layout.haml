@@ -12,13 +12,18 @@
     %title= page_title
 
     = stylesheet_link_tag 'site'
-    = javascript_include_tag 'init'
     = render_partial 'analytics'
+
     = yield_content :head
 
   %body{ :class => page_class }
 
-    = render_partial "navi"
+    .wrapper
+      %header.site-navi>
+        %a.site-title{ :href => "/", :class => ( current_path == "index.html" ) ? "is-here" : "" }
+          %h1 Steven Sloan
 
-    %section.content
-      = yield
+        %p You can find me on <a href="https://github.com/stevenosloan">GitHub</a> or <a href="http://twitter.com/stevenosloan">Twitter</a>
+
+      %section.content{ role: "main" }>
+        = yield
