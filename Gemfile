@@ -5,6 +5,7 @@ ruby "1.9.3"
 gem "rake"
 gem "colorize"
 gem "builder"
+gem 'statistrano', :git => 'git@github.com:mailchimp/statistrano.git'
 
 ## middleman
 gem "middleman"
@@ -31,11 +32,7 @@ group :development do
 
 end
 
-group :deployment do
-	gem "net-ssh-simple"
-end
-
 group :testing do
   gem "rspec"
-  # gem "autotest"
+  gem "autotest"
 end
