@@ -1,11 +1,11 @@
 %header.site-navi
-	%a.site-title{ :href => "/", :class => ( current_path == "index.html" ) ? "is-here" : "" }
-		%h1 Steven Sloan
+  %a.site-title{ :href => "/", :class => ( current_path == "index.html" ) ? "is-here" : "" }
+    %h1 Steven Sloan
 
-	%nav
+  %nav
 
-		%a{ :href => "#anchor-articles", :class => ( current_path.include? "articles" ) ? "is-here" : "" } articles
+    %a{ :href => "#anchor-articles", :class => ( current_path.include? "articles" ) ? "is-here" : "" } articles
 
-		-# %a{ :href => "/projects/", :class => ( current_path.include? "projects" ) ? "is-here" : "" } projects
+    -# %a{ :href => "/projects/", :class => ( current_path.include? "projects" ) ? "is-here" : "" } projects
 
-		%a{ :href => ( current_path == "index.html" ) ? "#anchor-contact" : "/#anchor-contact", :class => ( current_path.include? "contact" ) ? "is-here" : "" } contact
+    %a{ :href => ( current_path == "index.html" ) ? "#anchor-contact" : "/#anchor-contact", :class => ( current_path.include? "contact" ) ? "is-here" : "" } contact

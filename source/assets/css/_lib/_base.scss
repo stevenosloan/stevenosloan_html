@@ -1,8 +1,8 @@
 /*
 **  TABLE OF CONTENTS
-**  
+**
 **  1. Colors
-**	2. Typography
+**  2. Typography
 **  3. Styles
 */
 
@@ -55,41 +55,41 @@ $subtitle: 20px;
 $title: 30px;
 
 @mixin font-size-small{
-	font-size: $small;
-	line-height: $baseline;
+  font-size: $small;
+  line-height: $baseline;
 }
 
 @mixin font-size-body{
-	font-size: $body;
-	line-height: $baseline * 2;
+  font-size: $body;
+  line-height: $baseline * 2;
 }
 
 @mixin font-size-subtitle{
-	font-size: $subtitle;
-	line-height: $baseline * 3;
+  font-size: $subtitle;
+  line-height: $baseline * 3;
 }
 
 @mixin font-size-title{
-	font-size: $title;
-	line-height: $baseline * 3;
+  font-size: $title;
+  line-height: $baseline * 3;
 }
 
 @mixin serif{
-	font-family: Georgia, "Times New Roman", Times, sans-serif;
+  font-family: Georgia, "Times New Roman", Times, sans-serif;
 }
 
 @mixin sans{
-	font-family: "Source Sans Pro", "Helvetica Neue", Arial, Helvetica, sans-serif;
-	font-weight: 600;
+  font-family: "Source Sans Pro", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-weight: 600;
 }
 
 @mixin sans-light{
-	font-family: "Source Sans Pro", "Helvetica Neue", Arial, Helvetica, sans-serif;
-	font-weight: 300;
+  font-family: "Source Sans Pro", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-weight: 300;
 }
 
 @mixin monospace{
-	font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
+  font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
 }
 
 
@@ -98,25 +98,25 @@ $title: 30px;
 */
 
 body{
-	@include font-size-body;
-	@include serif;
-	color: $mid;
+  @include font-size-body;
+  @include serif;
+  color: $mid;
 }
 
 .title{
-	@include font-size-title;
-	@include sans;
-	color: $dark;
+  @include font-size-title;
+  @include sans;
+  color: $dark;
 }
 
 .body{
-	@include font-size-body;
-	@include serif;
+  @include font-size-body;
+  @include serif;
 }
 
 .code{
-	@include font-size-body;
-	@include monospace;
+  @include font-size-body;
+  @include monospace;
 }
 
 
@@ -126,63 +126,63 @@ body{
 ----------------------------------------------------------------------------- */
 
 a{
-	text-decoration: none;
-	color: $mid;
-	&:hover{
-		text-decoration: underline;
-	}
+  text-decoration: none;
+  color: $mid;
+  &:hover{
+    text-decoration: underline;
+  }
 }
 
 %callout-block{
-	padding: $baseline * 3 $baseline * 4;
-	border-top: 1px solid $light;
-	border-bottom: 1px solid $light;
-	max-width: 100%;
-	margin: $baseline * 4 0 $baseline * 4 $baseline * -4;
-	@media screen and ( max-width: $baseline * 42 ){
-		width: 100%;
-		padding: $baseline * 3 $baseline;
-		margin-left: -1 * $baseline;
-	}
+  padding: $baseline * 3 $baseline * 4;
+  border-top: 1px solid $light;
+  border-bottom: 1px solid $light;
+  max-width: 100%;
+  margin: $baseline * 4 0 $baseline * 4 $baseline * -4;
+  @media screen and ( max-width: $baseline * 42 ){
+    width: 100%;
+    padding: $baseline * 3 $baseline;
+    margin-left: -1 * $baseline;
+  }
 }
 
 %normalize{
-	h1{
-		@include sans;
-		@include font-size-title;
-		color: $dark;
-		margin: 0 0 $baseline * 2 0;
-	}
-	h2{
-		@include sans;
-		@include font-size-subtitle;
-		color: $dark;
-		margin: $baseline * 2 0 0 0;
-	}
-	p{
-		@include serif;
-		@include font-size-body;
-		color: $mid;
-		margin: $baseline 0 $baseline * 2 0;
-	}
-	a{
-		color: $dark;
-	}
-	pre{
-		@extend %callout-block;
-		background: $bright;
-		overflow: auto;
-		code{
-			@include monospace;
-			@include font-size-small;
-			white-space: pre;
-		}
-	}
-	blockquote{
-		@extend %callout-block;
-		p{
-			@include font-size-title;
-			@include sans-light;
-		}
-	}
+  h1{
+    @include sans;
+    @include font-size-title;
+    color: $dark;
+    margin: 0 0 $baseline * 2 0;
+  }
+  h2{
+    @include sans;
+    @include font-size-subtitle;
+    color: $dark;
+    margin: $baseline * 2 0 0 0;
+  }
+  p{
+    @include serif;
+    @include font-size-body;
+    color: $mid;
+    margin: $baseline 0 $baseline * 2 0;
+  }
+  a{
+    color: $dark;
+  }
+  pre{
+    @extend %callout-block;
+    background: $bright;
+    overflow: auto;
+    code{
+      @include monospace;
+      @include font-size-small;
+      white-space: pre;
+    }
+  }
+  blockquote{
+    @extend %callout-block;
+    p{
+      @include font-size-title;
+      @include sans-light;
+    }
+  }
 }

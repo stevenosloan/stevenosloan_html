@@ -10,127 +10,127 @@
 */
 
 #grid{
-	width: 100%;
-	height: 100%;
-	position: absolute;
-	background: url(/grid.png);
-	opacity: 0;
-	z-index: -1;
-	@include transition;
-	pointer-events: none;
-	&.visible{
-		opacity: 0.5;
-		z-index: 100;
-	}
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: url(/grid.png);
+  opacity: 0;
+  z-index: -1;
+  @include transition;
+  pointer-events: none;
+  &.visible{
+    opacity: 0.5;
+    z-index: 100;
+  }
 }
 
 
 /*     Page Elements
 ----------------------------------------------------------------------------- */
 html, body{
-	width: 100%;
-	height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 body{
-	background: $white;
-	-webkit-font-smoothing: antialiased;
+  background: $white;
+  -webkit-font-smoothing: antialiased;
 }
 
 .site-navi{
-	background: $dark;
-	color: $white;
-	display: block;
-	min-height: 100%;
-	width: 100% * 1/5;
-	@include box-sizing;
-	float: left;
-	padding: ( $baseline * 3 ) 0 0 ( $baseline * 4 );
-	border-right: 1px solid $dark;
-	position: fixed;
-	top: 0;
-	left: 0;
-	@media screen and ( max-width: 60 * $baseline ){
-		padding-left: $baseline;
-		width: 100% * 1/4;
-		min-width: 0;
-	}
-	@media screen and ( max-width: 42 * $baseline ){
-		position: relative;
-		width: 100%;
-		height: auto;
-		min-height: 0;
-		padding: $baseline 0 0 $baseline;
-	}
-	.site-title{
-		h1{
-			margin: 0 0 ( ( $baseline / 2 ) - 1) 0;
-			@include font-size-body;
-			@include sans;
-			color: $white;
-			line-height: $baseline;
-		}
-		@media screen and ( max-width: 42 * $baseline ){
-			margin: 0;
-			width: 50%;
-			float: left;
-			h1{
-				line-height: $baseline * 2;
-			}
-		}
-	}
-	nav{
-		margin-top: $baseline * 4.5;
-		@media screen and ( max-width: 42 * $baseline ){
-			margin: 0;
-			width: 50%;
-			float: left;
-		}
-	}
-	a{
-		letter-spacing: .1em;
-		color: $white;
-		display: block;
-		margin-bottom: $baseline / 2;
-		padding-bottom: ( ( $baseline / 2 ) - 1 );
-		border-bottom: 1px solid $dark;
-		@include transition( all, .2s, linear );
-		@media screen and ( min-width: 42 * $baseline ){
-			&:hover{
-				text-decoration: none;
-				color: #fff;
-				border-bottom: 1px solid $mid;
-				@include transition( all, .6s, linear );
-			}
-		}
-		&.is-here{
-			border-bottom: 1px solid $pop;
-			&:hover{
-				cursor: default;
-			}
-		}
-	}
+  background: $dark;
+  color: $white;
+  display: block;
+  min-height: 100%;
+  width: 100% * 1/5;
+  @include box-sizing;
+  float: left;
+  padding: ( $baseline * 3 ) 0 0 ( $baseline * 4 );
+  border-right: 1px solid $dark;
+  position: fixed;
+  top: 0;
+  left: 0;
+  @media screen and ( max-width: 60 * $baseline ){
+    padding-left: $baseline;
+    width: 100% * 1/4;
+    min-width: 0;
+  }
+  @media screen and ( max-width: 42 * $baseline ){
+    position: relative;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    padding: $baseline 0 0 $baseline;
+  }
+  .site-title{
+    h1{
+      margin: 0 0 ( ( $baseline / 2 ) - 1) 0;
+      @include font-size-body;
+      @include sans;
+      color: $white;
+      line-height: $baseline;
+    }
+    @media screen and ( max-width: 42 * $baseline ){
+      margin: 0;
+      width: 50%;
+      float: left;
+      h1{
+        line-height: $baseline * 2;
+      }
+    }
+  }
+  nav{
+    margin-top: $baseline * 4.5;
+    @media screen and ( max-width: 42 * $baseline ){
+      margin: 0;
+      width: 50%;
+      float: left;
+    }
+  }
+  a{
+    letter-spacing: .1em;
+    color: $white;
+    display: block;
+    margin-bottom: $baseline / 2;
+    padding-bottom: ( ( $baseline / 2 ) - 1 );
+    border-bottom: 1px solid $dark;
+    @include transition( all, .2s, linear );
+    @media screen and ( min-width: 42 * $baseline ){
+      &:hover{
+        text-decoration: none;
+        color: #fff;
+        border-bottom: 1px solid $mid;
+        @include transition( all, .6s, linear );
+      }
+    }
+    &.is-here{
+      border-bottom: 1px solid $pop;
+      &:hover{
+        cursor: default;
+      }
+    }
+  }
 }
 
 .content{
-	float: left;
-	@include box-sizing;
-	padding-bottom: $baseline * 4;
-	width: 100% * 4/5;
-	margin-left: 100% * 1/5;
-	@media screen and ( max-width: 60 * $baseline ){
-		padding-left: 0;
-		width: 100% * 3/4;
-		margin-left: 100% * 1/4;
-	}
-	@media screen and ( max-width: 42 * $baseline ){
-		padding: 0;
-		width: 100%;
-		margin-left: 0;
-	}
-	.page-home &{
-		padding-bottom: 0;
-	}
+  float: left;
+  @include box-sizing;
+  padding-bottom: $baseline * 4;
+  width: 100% * 4/5;
+  margin-left: 100% * 1/5;
+  @media screen and ( max-width: 60 * $baseline ){
+    padding-left: 0;
+    width: 100% * 3/4;
+    margin-left: 100% * 1/4;
+  }
+  @media screen and ( max-width: 42 * $baseline ){
+    padding: 0;
+    width: 100%;
+    margin-left: 0;
+  }
+  .page-home &{
+    padding-bottom: 0;
+  }
 }
 
 /*
@@ -138,26 +138,26 @@ body{
 **
 */
 .post-nav{
-	border-bottom: 1px solid $light;
-	padding: $baseline * 2.5 0 $baseline/2 ( $baseline * 2 - 4 );
-	@media screen and ( max-width: 42 * $baseline ){
-		padding: $baseline 0 $baseline/2 ( $baseline * 2 - 4 );
-	}
-	a{
-		color: $light;
-		@include font-size-body;
-		text-decoration: none;
-		@include transition;
-		&:before{
-			content: '\2190';
-			margin-right: $baseline;
-			position: relative;
-			bottom: .066666667em;
-		}
-		&:hover{
-			color: $mid;
-		}
-	}
+  border-bottom: 1px solid $light;
+  padding: $baseline * 2.5 0 $baseline/2 ( $baseline * 2 - 4 );
+  @media screen and ( max-width: 42 * $baseline ){
+    padding: $baseline 0 $baseline/2 ( $baseline * 2 - 4 );
+  }
+  a{
+    color: $light;
+    @include font-size-body;
+    text-decoration: none;
+    @include transition;
+    &:before{
+      content: '\2190';
+      margin-right: $baseline;
+      position: relative;
+      bottom: .066666667em;
+    }
+    &:hover{
+      color: $mid;
+    }
+  }
 }
 
 
@@ -166,160 +166,158 @@ body{
 **
 */
 .post{
-	padding-top: $baseline * 4;
-	@media screen and ( max-width: 42 * $baseline ){
-		padding-top: $baseline * 2;
-	}
-	hgroup{
-		padding-left: $baseline * 4;
-		.title{
-			margin: 0;
-		}
-		.body{
-			margin: $baseline / 2 0 $baseline 0;
-		}
-		&:after{
-			content: '';
-			display: block;
-			width: $baseline * 4;
-			height: $baseline;
-			background: $dark;
-			margin-top: 35px;
-		}
-		@media screen and ( max-width: 42 * $baseline ){
-			@include box-sizing;
-			padding: $baseline;
-			width: 100%;
-			margin-left: 0;
-		}
-	}
+  padding-top: $baseline * 4;
+  @media screen and ( max-width: 42 * $baseline ){
+    padding-top: $baseline * 2;
+  }
+  hgroup{
+    padding-left: $baseline * 4;
+    .title{
+      margin: 0;
+    }
+    .body{
+      margin: $baseline / 2 0 $baseline 0;
+    }
+    &:after{
+      content: '';
+      display: block;
+      width: $baseline * 4;
+      height: $baseline;
+      background: $dark;
+      margin-top: 35px;
+    }
+    @media screen and ( max-width: 42 * $baseline ){
+      @include box-sizing;
+      padding: $baseline;
+      width: 100%;
+      margin-left: 0;
+    }
+  }
 }
 
 .post-content{
-	@extend %normalize;
-	padding-top: $baseline * 3.5;
-	padding-left: $baseline * 4;
-	*{
-		max-width: $baseline * 42;
-	}
-	p{
-		margin-right: $baseline * 2;
-		@media screen and ( max-width: 42 * $baseline ){
-			margin-right: 0;
-		}
-	}
-	@media screen and ( max-width: 42 * $baseline ){
-		@include box-sizing;
-		padding: 0 $baseline;
-		width: 100%;
-		margin-left: 0;
-	}
+  @extend %normalize;
+  padding-top: $baseline * 3.5;
+  padding-left: $baseline * 4;
+  *{
+    max-width: $baseline * 42;
+  }
+  p{
+    margin-right: $baseline * 2;
+    @media screen and ( max-width: 42 * $baseline ){
+      margin-right: 0;
+    }
+  }
+  @media screen and ( max-width: 42 * $baseline ){
+    @include box-sizing;
+    padding: 0 $baseline;
+    width: 100%;
+    margin-left: 0;
+  }
 }
 
 
 /*
-**	.post-list
-**		%a
-**			%h1 Post Title
-**			%p Post Date
+**  .post-list
+**    %a
+**      %h1 Post Title
+**      %p Post Date
 */
 .post-list{
-	padding: $baseline * 8 0;
-	@extend %normalize;
-	@media screen and ( max-width: 42 * $baseline ){
-		padding: 0;
-	}
-	> h2{
-		@include font-size-body;
-		@include serif;
-		font-weight: normal;
-		color: $mid;
-		padding-left: $baseline * 4;
-		margin-bottom: $baseline;
-	}
-	.post{
-		padding-top: 0;
-	}
-	a{
-		display: block;
-		text-decoration: none;
-		padding: ( $baseline * 2 - 1 ) ( $baseline * 4 ) ( $baseline * 2 ) ( $baseline * 4 );
-		border-bottom: 1px solid $light;
-			@include transition( background, .1s, linear );
-		@media screen and ( max-width: 42 * $baseline ){
-			padding-left: $baseline;
-			padding-right: $baseline;
-		}
-		&:first-of-type{
-			border-top: 1px solid $light;
-			margin-top: -1px;
-		}
-		&:hover{
-			@include transition( background, .2s, linear );
-			background: mix( $light, $white, 40% );
-			cursor: pointer;
-			position: relative;
-			z-index: 100;
-			margin-top: -1px;
-			border-color: mix( $light, $mid, 50% );
-			border-top: 1px solid mix( $light, $mid, 50% );
-		}
-		h1{
-			margin: 0;
-		}
-		p{
-			margin: $baseline / 2 0;
-		}
-	}
+  padding: $baseline * 8 0;
+  @extend %normalize;
+  @media screen and ( max-width: 42 * $baseline ){
+    padding: 0;
+  }
+  > h2{
+    @include font-size-body;
+    @include serif;
+    font-weight: normal;
+    color: $mid;
+    padding-left: $baseline * 4;
+    margin-bottom: $baseline;
+  }
+  .post{
+    padding-top: 0;
+  }
+  a{
+    display: block;
+    text-decoration: none;
+    padding: ( $baseline * 2 - 1 ) ( $baseline * 4 ) ( $baseline * 2 ) ( $baseline * 4 );
+    border-bottom: 1px solid $light;
+      @include transition( background, .1s, linear );
+    @media screen and ( max-width: 42 * $baseline ){
+      padding-left: $baseline;
+      padding-right: $baseline;
+    }
+    &:first-of-type{
+      border-top: 1px solid $light;
+      margin-top: -1px;
+    }
+    &:hover{
+      @include transition( background, .2s, linear );
+      background: mix( $light, $white, 40% );
+      cursor: pointer;
+      position: relative;
+      z-index: 100;
+      margin-top: -1px;
+      border-color: mix( $light, $mid, 50% );
+      border-top: 1px solid mix( $light, $mid, 50% );
+    }
+    h1{
+      margin: 0;
+    }
+    p{
+      margin: $baseline / 2 0;
+    }
+  }
 }
 
 /*     Page Content
 ----------------------------------------------------------------------------- */
 
 .notice {
-	max-width: 100%;
-	@extend %callout-block;
-	background: $highlight;
+  max-width: 100%;
+  @extend %callout-block;
+  background: $highlight;
 }
 
 .content-home{
-	@include box-sizing;
-	@extend %callout-block;
-	margin: 0;
-	padding-top: 52px;
-	*{
-		max-width: $baseline * 42;
-	}
-	.title{
-		font-size: $baseline * 4;
-		line-height: $baseline * 4;
-		margin-bottom: 28px;
-	}
-	a{
-		color: $dark;
-		opacity: 0.7;
-		@include transition;
-		&:hover{
-			opacity: 1.0;
-		}
-	}
+  @include box-sizing;
+  @extend %callout-block;
+  margin: 0;
+  padding-top: 52px;
+  *{
+    max-width: $baseline * 42;
+  }
+  .title{
+    font-size: $baseline * 4;
+    line-height: $baseline * 4;
+    margin-bottom: 28px;
+  }
+  a{
+    color: $dark;
+    opacity: 0.7;
+    @include transition;
+    &:hover{
+      opacity: 1.0;
+    }
+  }
 }
 
 .content-contact{
-	@include box-sizing;
-	@extend %callout-block;
-	margin: 0;
-	.title{
-		margin: $baseline 0 0 0;
-	}
-	a{
-		color: $dark;
-		opacity: 0.7;
-		@include transition;
-		&:hover{
-			opacity: 1.0;
-		}
-	}
+  @include box-sizing;
+  @extend %callout-block;
+  margin: 0;
+  .title{
+    margin: $baseline 0 0 0;
+  }
+  a{
+    color: $dark;
+    opacity: 0.7;
+    @include transition;
+    &:hover{
+      opacity: 1.0;
+    }
+  }
 }
-
-@import "_lib/mediaqueries.scss";

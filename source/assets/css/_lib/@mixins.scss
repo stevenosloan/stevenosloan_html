@@ -1,7 +1,7 @@
 /*
 **  TABLE OF CONTENTS
 **
-**	1. Layout
+**  1. Layout
 **  2. Transitions and Animation
 **  3. Styles
 */
@@ -39,7 +39,7 @@
 /*     Transitions and Animation
 ----------------------------------------------------------------------------- */
 
-@mixin transition( $type: all, $time: .3s, $easing: linear) {  
+@mixin transition( $type: all, $time: .3s, $easing: linear) {
        -o-transition: $type $time $easing;
      -moz-transition: $type $time $easing;
   -webkit-transition: $type $time $easing;
@@ -57,22 +57,22 @@
 }
 
 @mixin select-color( $hex ){
-	::selection {
-		background: $hex; /* Safari */
-	}
-	::-moz-selection {
-		background: $hex; /* Firefox */
-	}
+  ::selection {
+    background: $hex; /* Safari */
+  }
+  ::-moz-selection {
+    background: $hex; /* Firefox */
+  }
 }
 
 @mixin colors( $name, $hex ){
-	
-	.bg-#{$name}{
-		background: $hex;
-	}
 
-	.#{$name}{
-		color: $hex;
-	}
-	
+  .bg-#{$name}{
+    background: $hex;
+  }
+
+  .#{$name}{
+    color: $hex;
+  }
+
 }

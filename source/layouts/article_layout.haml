@@ -1,11 +1,11 @@
 - wrap_layout :layout do
 
-	%nav.post-nav
-		%a{ :href => "/" } Back
+  %nav.post-nav
+    %a{ :href => "/" } Back
 
-	%article.post
-		%hgroup
-			%h1.title= current_article.title
-			%p.body= current_article.date.strftime('%b %e, %Y')
-		.post-content
-			= yield
+  %article.post
+    %hgroup
+      %h1.title= current_article.title
+      %p.body= current_article.date.strftime('%b %e, %Y')
+    .post-content
+      = yield

@@ -4,25 +4,25 @@ title: "Steven Sloan | Designer &amp; Developer in Atlanta"
 
 
 %article.content-home
-	%h1.title
-		Hi. I&rsquo;m a Designer &amp; Developer based in Atlanta.
-	%p.body
-		Currently, I spend my days at <a href="http://mailchimp.com">MailChimp</a> working as a developer.
-	%p.body
-		I also do side work with <a href="http://vaguelyscandinavian.com">Vaguely Scandinavian</a>. In the past, I worked at <a href="http://peopleofresource.com" rel="nofollow">People of Resource</a> and <a href="http://digitalscientists.com" rel="nofollow">Digital Scientists</a> as a designer.
+  %h1.title
+    Hi. I&rsquo;m a Designer &amp; Developer based in Atlanta.
+  %p.body
+    Currently, I spend my days at <a href="http://mailchimp.com">MailChimp</a> working as a developer.
+  %p.body
+    I also do side work with <a href="http://vaguelyscandinavian.com">Vaguely Scandinavian</a>. In the past, I worked at <a href="http://peopleofresource.com" rel="nofollow">People of Resource</a> and <a href="http://digitalscientists.com" rel="nofollow">Digital Scientists</a> as a designer.
 
 
 %nav.post-list#anchor-articles
 
-	%h2 Recent Articles:
+  %h2 Recent Articles:
 
-	- blog.articles.each do |article|
-		%a{ :href => "#{article.url}" }
-			%article.post
-				%h1= article.title
-				%p= article.date.strftime('%b %e, %Y')
+  - blog.articles.each do |article|
+    %a{ :href => "#{article.url}" }
+      %article.post
+        %h1= article.title
+        %p= article.date.strftime('%b %e, %Y')
 
 %article.content-contact#anchor-contact
 
-	%h1.title Get in Touch
-	%p.body You can find me on <a href="https://github.com/stevenosloan">GitHub</a> or <a href="http://twitter.com/stevenosloan">Twitter</a>
+  %h1.title Get in Touch
+  %p.body You can find me on <a href="https://github.com/stevenosloan">GitHub</a> or <a href="http://twitter.com/stevenosloan">Twitter</a>

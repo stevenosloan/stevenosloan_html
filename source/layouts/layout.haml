@@ -1,26 +1,24 @@
-= yield_content :pre_doc
 !!! 5
 %html
 
-	%head
+  %head
 
-		%meta{ :charset => "UTF-8" }
-		%meta{ :name => "viewport", :content => "width=device-width, initial-scale=1" }
-		%meta( http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" )
-		%meta{ :name => "google-site-verification", :content => "7KgHTNkMMzdgvgz_Jbb_uNkC18FuunUTvC7MxXWRVRo" }
-		%link{ :rel => "alternate", :type => "application/rss+xml", :title => data.global.title, :href => "/feed.xml" }
+    %meta{ charset: "UTF-8" }
+    %meta{ name: "viewport", content: "width=device-width, initial-scale=1" }
+    %meta( http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" )
+    %meta{ name: "google-site-verification", content: "7KgHTNkMMzdgvgz_Jbb_uNkC18FuunUTvC7MxXWRVRo" }
+    %link{ rel: "alternate", type: "application/rss+xml", title: data.global.title, href: "/feed.xml" }
 
-		%title= page_title
+    %title= page_title
 
-		= stylesheet_link_tag 'site'
-		= javascript_include_tag 'init'
-		= render_partial 'analytics'
-		= yield_content :head
+    = stylesheet_link_tag 'site'
+    = javascript_include_tag 'init'
+    = render_partial 'analytics'
+    = yield_content :head
 
-	%body{ :class => page_class }
+  %body{ :class => page_class }
 
-		= render_partial "navi"
-		%section.content
-			= yield
+    = render_partial "navi"
 
-		#grid
+    %section.content
+      = yield

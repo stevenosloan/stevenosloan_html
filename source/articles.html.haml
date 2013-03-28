@@ -4,8 +4,8 @@ title: "Articles | Steven Sloan"
 
 %nav.post-list
 
-	- blog.articles.each do |article|
-		%a{ :href => "#{article.url}" }
-			%article.post
-				%h1= article.title
-				%p= article.date.strftime('%b %e, %Y')
+  - blog.articles.each do |article|
+    %a{ :href => "#{article.url}" }
+      %article.post
+        %h1= article.title
+        %p= article.date.strftime('%b %e, %Y')
