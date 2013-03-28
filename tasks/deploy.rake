@@ -1,7 +1,7 @@
 desc "deploy to prod"
 task :deploy do
 
-  require 'net/ssh' 
+  require 'net/ssh'
   require 'net/ssh/simple'
 
   @host = 'stevenosloan_html'

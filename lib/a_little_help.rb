@@ -1,4 +1,4 @@
-module CustomHelpers
+module ALittleHelp
 
   def versioned_script( script_name )
     tag = javascript_include_tag "#{script_name}"

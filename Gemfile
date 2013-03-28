@@ -24,7 +24,7 @@ group :development do
 
   gem "thin"
   gem "foreman"
-  
+
   gem "rack"
 	gem "rack-rewrite"
   gem "rack-legacy"

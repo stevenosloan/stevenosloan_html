@@ -1,9 +1,8 @@
 # Add ./lib to the load path
 $LOAD_PATH << File.join( Dir.pwd, '/lib' )
 
-###########################
-## Layouts
-###########################
+# Layouts
+# ---------------------------------------
 
 page "/feed.xml", :layout => false
 page "/_lib/*", :layout => false
@@ -17,9 +16,8 @@ activate :blog do |blog|
 end
 
 
-###########################
-## Directories
-###########################
+# Directories
+# ---------------------------------------
 
 require 'middleman-livereload'
 activate :livereload
@@ -39,9 +37,8 @@ set :markdown_engine, :redcarpet
 
 
 
-###########################
-## PHP on Rack
-###########################
+# PHP on Rack
+# ---------------------------------------
 
 unless self.build?
 
@@ -85,17 +82,15 @@ unless self.build?
 
 end
 
-###########################
-## Helpers
-###########################
+# Helpers
+# ---------------------------------------
 
-require 'customhelpers'
-helpers CustomHelpers
+require 'a_little_help'
+helpers ALittleHelp
 
 
-###########################
-## Build-specific config
-###########################
+# Build-specific config
+# ---------------------------------------
 
 configure :build do
 
