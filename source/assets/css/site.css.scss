@@ -195,6 +195,10 @@ body{
   @extend %span2of3;
   @extend %normalize;
   padding-top: $gutter*6;
+  padding-bottom: $gutter*3;
+  @media screen and (max-width: $break-mid) {
+    padding-top: $gutter;
+  }
   a{
     display: block;
     text-decoration: none;
