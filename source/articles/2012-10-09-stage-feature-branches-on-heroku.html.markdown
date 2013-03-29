@@ -18,6 +18,6 @@ $ git push -f heroku #{branch}:refs/heads/master
 desc "stage the chosen branch"
 task :stage, :branch do |t, args|
   branch = args[:branch]
-	system "git push -f heroku #{branch}:refs/heads/master"
+  system "git push -f heroku #{branch}:refs/heads/master"
 end
 ```

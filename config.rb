@@ -1,6 +1,9 @@
 # Add ./lib to the load path
 $LOAD_PATH << File.join( Dir.pwd, '/lib' )
 
+activate :syntax
+set :haml, { ugly: true, format: :html5 }
+
 # Layouts
 # ---------------------------------------
 

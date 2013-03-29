@@ -10,6 +10,7 @@ gem 'statistrano', :git => 'git@github.com:mailchimp/statistrano.git'
 ## middleman
 gem "middleman"
 gem "middleman-blog"
+gem "middleman-syntax"
 
 ## rendering engines
 gem "haml"
