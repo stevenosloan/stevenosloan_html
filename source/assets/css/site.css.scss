@@ -202,8 +202,7 @@ body{
   a{
     display: block;
     text-decoration: none;
-    padding: $base 0;
-    margin: $base*2 0;
+    margin: $gutter 0;
     @include transition( all, .3s, ease );
     @include box-shadow( -$base*2.5 0 0 0 $light, -$base*3 0 0 0 $highlight );
     &:hover {
