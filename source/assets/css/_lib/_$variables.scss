@@ -30,11 +30,12 @@ $gutter: $base*3;
 /*      Typography
 ------------------------------------------------- */
 
+$baseline: $base*4;
 
+$type-small: 15px;
+$type-mid: 18px;
+$type-large: 36px;
 
-
-$baseline: 15px;
-$small: 15px;
-$body: 18px;
-$subtitle: 20px;
-$title: 30px;
+$line-small: 21/15;
+$line-mid: 30/18;
+$line-large: 42/40;

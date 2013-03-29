@@ -38,23 +38,23 @@
 ----------------------------------------------------------------------------- */
 
 @mixin font-size-small{
-  font-size: $small;
-  line-height: $baseline;
+  font-size: $type-small;
+  line-height: $line-small;
 }
 
 @mixin font-size-body{
-  font-size: $body;
-  line-height: $baseline * 2;
+  font-size: $type-mid;
+  line-height: $line-mid;
 }
 
 @mixin font-size-subtitle{
-  font-size: $subtitle;
-  line-height: $baseline * 3;
+  font-size: $type-mid;
+  line-height: $line-mid;
 }
 
 @mixin font-size-title{
-  font-size: $title;
-  line-height: $baseline * 3;
+  font-size: $type-large;
+  line-height: $line-large;
 }
 
 @mixin serif{
@@ -129,19 +129,19 @@ a{
     @include sans;
     @include font-size-title;
     color: $dark;
-    margin: 0 0 $baseline * 2 0;
+    margin: 0 0 1em 0;
   }
   h2{
     @include sans;
     @include font-size-subtitle;
     color: $dark;
-    margin: $baseline * 2 0 0 0;
+    margin: .5em 0 0 0;
   }
   p{
     @include serif;
     @include font-size-body;
     color: $mid;
-    margin: $baseline 0 $baseline * 2 0;
+    margin: 1em 0 2em 0;
   }
   a{
     color: $dark;

@@ -62,8 +62,10 @@
 }
 
 .content {
-  @extend %col;
-  @extend %span2of3;
+  text-align: right;
+  > * {
+    text-align: left;
+  }
 }
 
 
@@ -76,42 +78,42 @@ html, body{
 }
 
 body{
+  @include box-sizing;
+  padding: $gutter*6 0;
   background: $light;
   -webkit-font-smoothing: antialiased;
 }
 
-.site-navi{
+.site-header{
   @extend %col;
-  @extend %span1of3;
-  border-right: 6px solid $pop;
+  @extend %span1of4;
+  border-right: 6px solid $highlight;
   vertical-align: middle;
   .site-title{
     h1{
-      margin: 0 0 ( ( $baseline / 2 ) - 1) 0;
       @include font-size-body;
       @include sans;
-      line-height: $baseline;
-    }
-    @media screen and ( max-width: 42 * $baseline ){
-      margin: 0;
-      width: 50%;
-      float: left;
-      h1{
-        line-height: $baseline * 2;
-      }
+      font-weight: bold;
+      margin: .5em 0;
     }
   }
-  a{
-    color: $dark;
-    &:hover {
-      color: $black;
+  p {
+    @include font-size-small;
+    margin: .5em 0;
+    a{
+      color: $dark;
+      &:hover {
+        color: $black;
+      }
     }
   }
 }
 
 .page-title {
-  @extend .content;
+  @extend %col;
+  @extend %span2of3;
   vertical-align: middle;
+  margin-left: percentage(1/12);
 }
 
 /*
@@ -141,60 +143,10 @@ body{
   }
 }
 
-
-/*
-**
-**
-*/
-.post{
-  padding-top: $baseline * 4;
-  @media screen and ( max-width: 42 * $baseline ){
-    padding-top: $baseline * 2;
-  }
-  hgroup{
-    padding-left: $baseline * 4;
-    .title{
-      margin: 0;
-    }
-    .body{
-      margin: $baseline / 2 0 $baseline 0;
-    }
-    &:after{
-      content: '';
-      display: block;
-      width: $baseline * 4;
-      height: $baseline;
-      background: $dark;
-      margin-top: 35px;
-    }
-    @media screen and ( max-width: 42 * $baseline ){
-      @include box-sizing;
-      padding: $baseline;
-      width: 100%;
-      margin-left: 0;
-    }
-  }
-}
-
 .post-content{
+  @extend %col;
+  @extend %span2of3;
   @extend %normalize;
-  padding-top: $baseline * 3.5;
-  padding-left: $baseline * 4;
-  *{
-    max-width: $baseline * 42;
-  }
-  p{
-    margin-right: $baseline * 2;
-    @media screen and ( max-width: 42 * $baseline ){
-      margin-right: 0;
-    }
-  }
-  @media screen and ( max-width: 42 * $baseline ){
-    @include box-sizing;
-    padding: 0 $baseline;
-    width: 100%;
-    margin-left: 0;
-  }
 }
 
 
@@ -205,51 +157,35 @@ body{
 **      %p Post Date
 */
 .post-list{
-  padding: $baseline * 8 0;
+  @extend %col;
+  @extend %span2of3;
   @extend %normalize;
-  @media screen and ( max-width: 42 * $baseline ){
-    padding: 0;
-  }
-  > h2{
-    @include font-size-body;
-    @include serif;
-    font-weight: normal;
-    color: $mid;
-    padding-left: $baseline * 4;
-    margin-bottom: $baseline;
-  }
-  .post{
-    padding-top: 0;
-  }
+  padding-top: $gutter*6;
   a{
     display: block;
     text-decoration: none;
-    padding: ( $baseline * 2 - 1 ) ( $baseline * 4 ) ( $baseline * 2 ) ( $baseline * 4 );
-    border-bottom: 1px solid $light;
-      @include transition( background, .1s, linear );
-    @media screen and ( max-width: 42 * $baseline ){
-      padding-left: $baseline;
-      padding-right: $baseline;
+    padding: $base 0;
+    margin: $base*2 0;
+    @include transition( all, .3s, ease );
+    @include box-shadow( -$base*2.5 0 0 0 $light, -$base*3 0 0 0 $highlight );
+    &:hover {
+      @include box-shadow( -$base*2.5 0 0 0 $light, -$base*3.5 0 0 0 $pop );
+      h1 {
+        color: $black;
+      }
     }
-    &:first-of-type{
-      border-top: 1px solid $light;
-      margin-top: -1px;
-    }
-    &:hover{
-      @include transition( background, .2s, linear );
-      background: mix( $light, $white, 40% );
-      cursor: pointer;
-      position: relative;
-      z-index: 100;
-      margin-top: -1px;
-      border-color: mix( $light, $mid, 50% );
-      border-top: 1px solid mix( $light, $mid, 50% );
-    }
-    h1{
+    h1 {
+      @include serif;
+      @include font-size-body;
+      @include transition( all, .3s, ease );
+      font-weight: normal;
       margin: 0;
     }
-    p{
-      margin: $baseline / 2 0;
+    p {
+      @include sans;
+      @include font-size-small;
+      color: $mid;
+      margin: 0;
     }
   }
 }

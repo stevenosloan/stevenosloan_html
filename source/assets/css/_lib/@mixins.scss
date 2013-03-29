@@ -6,6 +6,16 @@
 **  3. Styles
 */
 
+@function compact($vars...) {
+  $list: ();
+  @each $var in $vars {
+    @if $var {
+      $list: append($list, $var, comma);
+    }
+  }
+  @return $list;
+}
+
 /*     Layout
 ----------------------------------------------------------------------------- */
 
@@ -51,9 +61,9 @@
 /*     Styles
 ----------------------------------------------------------------------------- */
 
-@mixin box-shadow( $args ){
-  -webkit-box-shadow: $args;
-  box-shadow: $args;
+@mixin box-shadow( $args, $args2: false ){
+  -webkit-box-shadow: compact($args, $args2);
+  box-shadow: compact($args, $args2);
 }
 
 @mixin select-color( $hex ){
