@@ -15,6 +15,7 @@ gem "middleman-blog"
 gem "haml"
 gem "sass"
 gem "redcarpet"
+gem "nokogiri"
 
 ## runtime env
 gem "therubyracer"
