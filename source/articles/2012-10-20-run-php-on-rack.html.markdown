@@ -19,7 +19,7 @@ As always, a couple things are required to get started.
 - Install php with the cgi extension, [this homebrew formula](https://github.com/josegonzalez/homebrew-php) makes it easy
 
 
-```
+```ruby
 ## ./config.rb
 unless self.build?
 
