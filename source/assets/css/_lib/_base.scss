@@ -112,16 +112,11 @@ a{
 }
 
 %callout-block{
-  padding: $baseline * 3 $baseline * 4;
-  border-top: 1px solid $light;
-  border-bottom: 1px solid $light;
+  padding: $gutter*2 $gutter;
+  border-top: 1px solid mix( $light, $mid, 80% );
+  border-bottom: 1px solid mix( $light, $mid, 80% );
   max-width: 100%;
-  margin: $baseline * 4 0 $baseline * 4 $baseline * -4;
-  @media screen and ( max-width: $baseline * 42 ){
-    width: 100%;
-    padding: $baseline * 3 $baseline;
-    margin-left: -1 * $baseline;
-  }
+  margin: $gutter*2 0;
 }
 
 %normalize{
@@ -148,7 +143,6 @@ a{
   }
   pre{
     @extend %callout-block;
-    background: $bright;
     overflow: auto;
     code{
       @include monospace;

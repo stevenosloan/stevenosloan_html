@@ -43,6 +43,20 @@
 %span2of4 { width: percentage(2/4); }
 %span3of4 { width: percentage(3/4); }
 
+@media screen and (max-width: $break-mid) {
+  %span1of1,
+  %span1of2,
+  %span1of3,
+  %span2of3,
+  %span2of4,
+  %span3of4 {
+    width: percentage(1/1);
+  }
+  %span1of4 {
+    width: percentage(1/2);
+  }
+}
+
 .span1of1 { @extend %span1of1; }
 .span1of2 { @extend %span1of2; }
 .span1of3 { @extend %span1of3; }
@@ -59,6 +73,9 @@
   width: 90%;
   max-width: 1008px;
   margin: 0 auto;
+  @media screen and (max-width: 800px){
+    width: 100%;
+  }
 }
 
 .content {
@@ -82,12 +99,15 @@ body{
   padding: $gutter*6 0;
   background: $light;
   -webkit-font-smoothing: antialiased;
+  @media screen and (max-width: $break-mid) {
+    padding: $gutter 0;
+  }
 }
 
 .site-header{
   @extend %col;
   @extend %span1of4;
-  border-right: 6px solid $highlight;
+  border-right: $base solid $highlight;
   vertical-align: middle;
   .site-title{
     h1{
@@ -107,6 +127,17 @@ body{
       }
     }
   }
+  @media screen and (max-width: $break-mid) {
+    border-right: none;
+    border-bottom: $base solid $highlight;
+    padding-bottom: $gutter;
+    margin-bottom: $gutter*2;
+    width: percentage(1/1);
+    .site-title h1,
+    p {
+      margin: 0;
+    }
+  }
 }
 
 .page-title {
@@ -114,6 +145,9 @@ body{
   @extend %span2of3;
   vertical-align: middle;
   margin-left: percentage(1/12);
+  @media screen and (max-width: $break-mid) {
+    margin-left: 0;
+  }
 }
 
 /*
@@ -196,7 +230,7 @@ body{
 .notice {
   max-width: 100%;
   @extend %callout-block;
-  background: $highlight;
+  background: mix( $light, $highlight, 50% );
 }
 
 .content-home{
