@@ -61,6 +61,12 @@
 /*     Styles
 ----------------------------------------------------------------------------- */
 
+@mixin border-radius( $tl, $tr: $tl, $br: $tl, $bl: $tl ) {
+  -webkit-border-radius: $tl $tr $br $bl;
+     -moz-border-radius: $tl $tr $br $bl;
+          border-radius: $tl $tr $br $bl;
+}
+
 @mixin box-shadow( $args, $args2: false ){
   -webkit-box-shadow: compact($args, $args2);
   box-shadow: compact($args, $args2);

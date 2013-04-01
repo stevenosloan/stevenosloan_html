@@ -147,11 +147,18 @@ a{
   pre{
     @extend %callout-block;
     overflow: auto;
+    @include font-size-small;
     code{
       @include monospace;
-      @include font-size-small;
       white-space: pre;
     }
+  }
+  code {
+    background: $white;
+    display: inline-block;
+    padding: 0 .5em;
+    @include border-radius(.25em);
+    line-height: 1.35;
   }
   blockquote{
     @extend %callout-block;
