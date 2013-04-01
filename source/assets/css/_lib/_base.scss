@@ -78,7 +78,7 @@
 body {
   @include font-size-body;
   @include serif;
-  color: $dark;
+  color: $mid;
 }
 
 .title{
@@ -140,6 +140,9 @@ a{
   }
   a{
     color: $dark;
+    &:hover {
+      color: $black;
+    }
   }
   pre{
     @extend %callout-block;

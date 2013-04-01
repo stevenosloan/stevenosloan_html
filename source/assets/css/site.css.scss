@@ -111,9 +111,11 @@ body{
   border-right: $base solid $highlight;
   vertical-align: middle;
   .site-title{
+    text-decoration: none;
     h1{
       @include font-size-body;
       @include sans;
+      color: $dark;
       font-weight: bold;
       margin: .5em 0;
     }
