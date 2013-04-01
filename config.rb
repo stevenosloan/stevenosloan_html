@@ -18,6 +18,9 @@ activate :blog do |blog|
 
 end
 
+require 'remove_drafts'
+activate :remove_drafts
+
 
 # Directories
 # ---------------------------------------
