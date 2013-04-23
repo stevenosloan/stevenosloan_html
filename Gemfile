@@ -5,7 +5,7 @@ ruby "1.9.3"
 gem "rake"
 gem "colorize"
 gem "builder"
-gem 'statistrano', :git => 'git@github.com:mailchimp/statistrano.git'
+gem 'statistrano', :git => 'git@github.com:mailchimp/statistrano.git', :branch => "refactor"
 
 ## middleman
 gem "middleman"
