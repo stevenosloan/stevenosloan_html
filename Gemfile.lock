@@ -1,7 +1,6 @@
 GIT
   remote: git@github.com:mailchimp/statistrano.git
-  revision: 84c367bf5dda1adefba9d932aabc142b5e0a565b
-  branch: refactor
+  revision: 199728e8cfe0da5444998aab93e327e58dfc8c7f
   specs:
     statistrano (0.2.0)
       colorize (~> 0.5.8)
