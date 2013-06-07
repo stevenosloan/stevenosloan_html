@@ -5,17 +5,19 @@ date: 2013/04/09
 
 ---
 
-Recently I was using the shovel operator to concatenate a string and an instance variable exposed with an `attr_reader` to be returned by a method and noticed an odd thing, the instance variable was being modified – admittedly I was using the shovel operator incorrectly – but it prompted me to dig into some unexpected potential pitfalls of their use.
+Recently I was using the shovel operator to concatenate a string and an instance variable exposed with an `attr_reader` for use elsewhere and noticed an unexpected thing, the instance variable was being modified – admittedly, I was using the shovel operator poorly – but it prompted me to dig into some unexpected side effects of their use.
+
 
 ## tl;dr;
 
-In Ruby there is a convention to end methods that are dangerous (like mutate the object they are called on) with an `!`, for example `gsub!`, `map!`, or `capitalize!`. This isn't always the case though, so some unexpected situations can crop up if you're not careful.
+In Ruby it is convention to end methods that mutate the object they are called on end with an `!`, for example `gsub!`, `map!`, or `capitalize!`. This isn't always the case though, so some unexpected situations can crop up if you're not careful (I'm looking at you `keep_if`).
 
-Because of how the shovel operator works, and other methods that mutate the object they're called on, any method that exposes an object allows that object to be modified. So contrary to what you might expect, exposing an instance variable with a getter and no setter, doesn't mean its safe from modification. And having a getter doesn't guarantee that you're able to control how a variable is set.
+Because of how the shovel operator works, and other methods that mutate the object they're called on, any method that exposes an object allows that object to be modified. So contrary to what you might expect, exposing an instance variable with a getter and no setter, doesn't mean its safe from modification (ignoring the "devious" meta-programy means of modification).
+
 
 ## Modifying instance variables through attr_reader
 
-To demonstrate, we'll take a few instance variables exposed only with getters, and modify them. To do so, lets create a class with an instance variable containing an array and a string and initialize it.
+To demonstrate, we'll take a few instance variables exposed only with getters, and modify them. To do so, create a class with an instance variable containing an array and a string and initialize it.
 
 ```ruby
 # create a class with an attr_reader for
@@ -60,39 +62,40 @@ p thing.str
 # => "hello"
 ```
 
-You may expect to be able to control how a variable is defined through a getter, but that is not the case with shovels (or other methods that mutate the object they're called on).
+If you really need to "ensure" that instance variables aren't inadvertantly modified, you can write a getter with `dup` to return a copy of the original instance.
 
 ```ruby
-class Thing2 < Thing
+class Protected
+  attr_accessor :exposed
 
-  def arr= obj
-    @arr = %w{ set it and forget it }
+  def initialize
+    @exposed = "safe"
+    @safe = "safe"
   end
 
-  def static_string
-    "I'm not going to change"
+  def safe
+    @safe.dup
   end
-
 end
 
-thing2 = Thing2.new()
-p thing2.arr
-# => []
+# again, a sanity check to see that
+# our values both equal "safe"
 
-thing2.arr = "hello"
-p thing2.arr
-# => ["set", "it", "and", "forget", "it"]
+example = Protected.new
+p example.safe == example.exposed
+# => true
 
-thing2.arr << "and get burned"
-p thing2.arr
-# => ["Set", "it", "and", "forget", "it", "and get burned"]
+# we'll shovel to try and modify them
+example.exposed << " or not"
+example.safe << " or not"
 
-p thing2.static_string
-# => "I'm not going to change"
+# and test equality again
+p example.safe == example.exposed
+# => false
 
-thing2.static_string << " or am I?"
-p thing2.static_string
-# => "I'm not going to change"
+# we can see @safe keeps its original value
+p example.safe
+# => "safe"
 ```
 
 A gist with all the code is available [here](https://gist.github.com/stevenosloan/5145549), please don't hesitate to comment there if you have something to add.
