@@ -1,5 +1,5 @@
 ---
-title: A Method for Using PHP with Middleman
+title: A method for using PHP with Middleman
 date: 2012/10/20
 ---
 

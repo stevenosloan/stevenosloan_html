@@ -1,5 +1,5 @@
 ---
-title: Stage Feature Branches on Heroku
+title: Stage feature branches on Heroku
 date: 2012/10/09
 ---
 
