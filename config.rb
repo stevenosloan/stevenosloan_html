@@ -10,6 +10,9 @@ set :haml, { ugly: true, format: :html5 }
 page "/feed.xml", :layout => false
 page "/_lib/*", :layout => false
 
+require 'remove_drafts'
+activate :remove_drafts
+
 activate :blog do |blog|
 
   blog.prefix = "articles"
@@ -18,8 +21,6 @@ activate :blog do |blog|
 
 end
 
-require 'remove_drafts'
-activate :remove_drafts
 
 
 # Directories
