@@ -1,42 +1,22 @@
-module RemoveDrafts
-
-  # register the feature as an extension
-  class << self
-
-    def registered app
-      app.after_configuration do
-        sitemap.register_resource_list_manipulator(:remove_drafts, NoDraftSitemap.new(self))
-      end
-    end
-
-    alias :included :registered
+class RemoveDrafts < Middleman::Extension
+  def initialize app, options={}, &block
+    super
   end
 
-  class NoDraftSitemap
+  def manipulate_resource_list resources
+    resources.map do |resource|
+      if resource.metadata[:page]["draft"]
+        resource.metadata[:page]["title"] << " - Draft"
 
-    def initialize app
-      @app = app
-    end
-
-    def manipulate_resource_list resources
-
-      resources.map do |resource|
-        if resource.metadata[:page]["draft"]
-          resource.metadata[:page]["title"] << " - Draft"
-
-          if @app.build?
-            resource = nil
-          end
+        if @app.build?
+          resource = nil
         end
+      end
 
-        resource
+      resource
 
-      end.compact
-
-    end
-
+    end.compact
   end
-
 end
 
 ::Middleman::Extensions.register(:remove_drafts, RemoveDrafts)
