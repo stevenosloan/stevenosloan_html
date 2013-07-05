@@ -21,6 +21,11 @@ activate :blog do |blog|
 
 end
 
+require 'projects'
+activate :projects do |opt|
+  opt.layout = "projects_layout"
+end
+
 
 
 # Directories

@@ -10,6 +10,14 @@ title: "Steven Sloan | Designer &amp; Developer in Atlanta"
     Currently I fill my days working at <a href="http://mailchimp.com">MailChimp</a> building tools with Ruby and doing Front-end&nbsp;Development.
 
 
+%nav.post-list#anchor-projects
+
+  %h2 Projects:
+  - projects.each do |project|
+    %a{ href: "#{project.url}" }
+      %article.post
+        %h1= project.title
+        %p= project.short_description
 
 %nav.post-list#anchor-articles
 

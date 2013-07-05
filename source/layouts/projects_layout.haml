@@ -1,0 +1,8 @@
+- content_for :page_header do
+  %h1.title= current_resource.title
+  %p.body= current_resource.short_description
+
+- wrap_layout :layout do
+
+  .post-content
+    = yield
