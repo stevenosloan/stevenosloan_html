@@ -6,6 +6,7 @@ gem "rake"
 gem "colorize"
 gem "builder"
 gem 'statistrano', :git => 'git@github.com:mailchimp/statistrano.git'
+gem 'borrower'
 
 ## middleman
 gem "middleman"
