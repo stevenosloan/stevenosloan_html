@@ -10,7 +10,7 @@ class Projects < Middleman::Extension
   end
 
   def projects
-    @_projects ||= []
+    @_projects ||= ProjectCollection.new
   end
 
   def manipulate_resource_list resources
@@ -21,6 +21,21 @@ class Projects < Middleman::Extension
       end
       resource
     end
+  end
+
+  class ProjectCollection
+
+    def collection
+      @_collection ||= []
+    end
+
+    def << new_project
+      collection.each do |project|
+        return if project.title == new_project.title
+      end
+      collection << new_project
+    end
+
   end
 
   class Project < Middleman::Sitemap::Resource

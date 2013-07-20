@@ -13,7 +13,7 @@ title: "Steven Sloan | Designer &amp; Developer in Atlanta"
 %nav.post-list#anchor-projects
 
   %h2 Projects:
-  - projects.each do |project|
+  - projects.collection.each do |project|
     %a{ href: "#{project.url}" }
       %article.post
         %h1= project.title
