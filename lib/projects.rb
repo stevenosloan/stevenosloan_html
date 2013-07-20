@@ -67,11 +67,6 @@ class Projects < Middleman::Extension
       end
     end
 
-    def readme
-      raise "add a readme for '#{data.title}'" unless data.readme
-      Project.renderer.render( Borrower.take( data.readme ).force_encoding('utf-8') )
-    end
-
     def method_missing method_name
       data.send(method_name)
     end

@@ -37,6 +37,11 @@
 /*     Typography
 ----------------------------------------------------------------------------- */
 
+@mixin font-size-xsmall {
+  font-size: $type-xsmall;
+  line-height: $line-xsmall;
+}
+
 @mixin font-size-small{
   font-size: $type-small;
   line-height: $line-small;
@@ -111,12 +116,42 @@ a{
   }
 }
 
+%btn {
+  text-decoration: none;
+  display: inline-block;
+  color: $mid;
+  @include sans;
+  @include font-size-xsmall;
+  font-weight: bold;
+  padding: .5em 2em;
+  border: 1px solid $mid;
+  @include border-radius( 6px );
+  @include box-shadow( 0 0 0 1px rgba($mid,0) );
+  @include transition( all, .3s, ease );
+  &:hover {
+    text-decoration: none;
+    border-color: $dark;
+    @include box-shadow( 0 0 0 1px $dark );
+  }
+}
+.btn {
+  @extend %btn;
+}
+
 %callout-block{
   padding: $gutter*2 $gutter;
   border-top: 1px solid mix( $light, $mid, 80% );
   border-bottom: 1px solid mix( $light, $mid, 80% );
   max-width: 100%;
   margin: $gutter*2 0;
+}
+
+hr {
+  margin: $baseline*2 0;
+  border: none;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-color: mix( $light, $mid, 80% );
 }
 
 %normalize{
