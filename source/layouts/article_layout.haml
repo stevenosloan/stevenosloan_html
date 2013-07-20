@@ -1,6 +1,5 @@
 - content_for :page_header do
-  %h1.title= current_article.title
-  %p.body= current_article.date.strftime('%b %e, %Y')
+  = render_partial "page_header", { title: current_article.title, subtitle: current_article.date.strftime('%b %e, %Y') }
 
 - wrap_layout :layout do
 

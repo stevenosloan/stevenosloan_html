@@ -5,8 +5,8 @@ module ALittleHelp
     tag.gsub('<script src="', '').gsub('" type="text/javascript"></script>', '')
   end
 
-  def render_partial( partial_name )
-    partial "partials/#{partial_name}"
+  def render_partial partial_name, locals={}
+    partial "partials/#{partial_name}", locals: locals
   end
 
   def page_title
