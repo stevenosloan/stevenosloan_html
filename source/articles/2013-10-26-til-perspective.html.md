@@ -2,7 +2,6 @@
 
 title: TIL&#58; Perspective
 date: 2013/10/26
-draft: true
 
 ---
 
