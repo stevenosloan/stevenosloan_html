@@ -1,40 +1,31 @@
 source "http://rubygems.org"
-ruby "1.9.3"
+ruby "2.0.0"
 
-# utility
-gem "rake"
-gem "colorize"
-gem "builder"
-gem 'statistrano', :git => 'git@github.com:mailchimp/statistrano.git'
 
 ## middleman
-gem "middleman"
-gem "middleman-blog"
-gem "middleman-syntax"
+gem "middleman",        "~> 3.2.0"
+gem "middleman-blog",   "~> 3.4.1"
+gem "middleman-syntax", "~> 1.2.1"
+
+
+## utility
+gem "rake",     "~> 10.1.0"
+gem "colorize", "~> 0.6.0"
+gem "builder",  "~> 3.2.2"
+gem "statistrano", git: "git@github.com:mailchimp/statistrano.git"
+
 
 ## rendering engines
-gem "haml"
-gem "sass"
-gem "redcarpet"
-gem "nokogiri"
+gem "haml",      "~> 4.0.4"
+gem "sass",      "~> 3.2.12"
+gem "redcarpet", "~> 3.0.0"
+gem "nokogiri",  "~> 1.6.0"
+
 
 ## runtime env
-gem "therubyracer"
+gem "therubyracer", "~> 0.12.0"
 
-group :development do
-
-  gem "middleman-livereload"
-
-  gem "thin"
-  gem "foreman"
-
-  gem "rack"
-	gem "rack-rewrite"
-  gem "rack-legacy"
-
-end
 
 group :testing do
-  gem "rspec"
-  gem "autotest"
+  gem "rspec", "~> 2.14.1"
 end
