@@ -1,11 +1,10 @@
 require 'statistrano'
 
-define_deployment "production", :releases do |config|
-
-  config.remote = 'digitalocean'
-  config.build_task = 'middleman:build'
-  config.local_dir = 'build'
-  config.remote_dir = '/var/www/stevenosloan.com'
-  config.git_branch = 'master'
-
+define_deployment "production", :releases do
+  remote     'digitalocean'
+  build_task 'middleman:build'
+  local_dir  'build'
+  remote_dir '/var/www/stevenosloan.com'
+  check_git  false
+  git_branch 'master'
 end

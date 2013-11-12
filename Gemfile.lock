@@ -1,12 +1,14 @@
 GIT
   remote: git@github.com:mailchimp/statistrano.git
-  revision: 57a0e54388539484ed859e47145b3f827370037b
+  revision: 617e5f42979d7177e159a8f572892cfd09a69624
+  tag: 0.9.0
   specs:
-    statistrano (0.8.1)
+    statistrano (0.9.0)
+      asgit (~> 0.0.4)
       colorize (~> 0.5)
-      net-ssh (~> 2.6)
+      here_or_there (~> 0.1)
       rake (~> 10.0)
-      slugity
+      slugity (~> 1.0)
 
 GEM
   remote: http://rubygems.org/
@@ -14,6 +16,7 @@ GEM
     activesupport (3.2.15)
       i18n (~> 0.6, >= 0.6.4)
       multi_json (~> 1.0)
+    asgit (0.0.4)
     builder (3.2.2)
     chunky_png (1.2.9)
     coffee-script (2.2.0)
@@ -32,6 +35,8 @@ GEM
     fssm (0.2.10)
     haml (4.0.4)
       tilt
+    here_or_there (0.1.1)
+      net-ssh (~> 2.6)
     hike (1.2.3)
     i18n (0.6.5)
     kramdown (1.2.0)
