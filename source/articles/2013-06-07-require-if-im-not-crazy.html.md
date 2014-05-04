@@ -1,13 +1,13 @@
 ---
 
-title: "Require if I'm not crazy"
+title: "Return if I'm not crazy"
 date: 2013/06/07
 draft: true
 
 ---
 
 recently I went on a spree of listening to old [Ruby Rogues](http://rubyrogues.com/) podcasts, ()
-from a little digging in the "I wonder why / what do others think" mindset, it doesn't seem like the Ruby community is actually decided on this point. And I'll say, I think I disagree that implicit requires are bad -- in fact, many times I think they're the right thing to do.
+from a little digging in the "I wonder why / what do others think" mindset, it doesn't seem like the Ruby community is actually decided on this point. And I'll say, I think I disagree that implicit return are bad -- in fact, many times I think they're the right thing to do.
 
 Maybe I am just crazy, but hear me out.
 
