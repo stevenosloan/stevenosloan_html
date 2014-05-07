@@ -11,9 +11,9 @@ Luckily for me, we had just started using a diff based test that caught the chan
 
 ## Setting up an environment for testing
 
-Testing with diffs requires that we remove any dynamic or random components between builds. For us at MailChimp, that primarily meant turning off freddies jokes in the source code. It could mean any lorem generators or lists that are sorted in a random order. In the context of middleman specifically, I also disabled asset_hashing & minification as any framework updates could create minor differences that I wanted to pinpoint closer to the source.
+Testing with diffs requires that we remove any dynamic or random components between builds. For us at MailChimp, that primarily meant turning off freddie's jokes in the source code. It could mean any lorem generators or lists that are sorted in a random order. In the context of middleman specifically, I also disabled asset_hashing & minification as any framework updates could create minor differences that I wanted to pinpoint closer to the source.
 
-Using a `BUILD_ENV` environment variable, my changes to a middleman cofig would look something like this:
+Using a `BUILD_ENV` environment variable, my changes to a middleman config would look something like this:
 
 ```ruby
 # config.rb
@@ -51,7 +51,7 @@ Files build/feed.xml and build.original/feed.xml differ
 Files build/index.html and build.original/index.html differ
 ```
 
-Now that we've established that some of our files differ, we can take a closer look at *how* they differ. To do this we'll change the output argument that we pass to diff. Previousy we had used `-q`, now we'll use `-u` (or `--unified`) to display an output we (well, at least I am) used to from using git. This will give us the differences between each file with a few lines of context.
+Now that we've established that some of our files differ, we can take a closer look at *how* they differ. To do this we'll change the output argument that we pass to diff. Previously we had used `-q`, now we'll use `-u` (or `--unified`) to display an output we (well, at least I am) used to from using git. This will give us the differences between each file with a few lines of context.
 
 ```bash
 $ diff -ru build.original/ build/
