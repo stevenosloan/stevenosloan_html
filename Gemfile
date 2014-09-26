@@ -12,7 +12,7 @@ gem "middleman-syntax", "~> 1.2.1"
 gem "rake",     "~> 10.1.0"
 gem "colorize", "~> 0.6.0"
 gem "builder",  "~> 3.2.2"
-gem "statistrano", git: "git@github.com:mailchimp/statistrano.git", tag: '0.9.0'
+gem "statistrano", git: "git@github.com:mailchimp/statistrano.git", tag: '1.0.0'
 
 
 ## rendering engines
