@@ -2,7 +2,7 @@
   %h1.title= current_article.title
   %p.body= current_article.date.strftime('%b %e, %Y')
 
-- wrap_layout :layout do
+= wrap_layout :layout do
 
   .post-content
     = yield

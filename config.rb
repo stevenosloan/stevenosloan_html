@@ -5,18 +5,15 @@ $LOAD_PATH << File.join( Dir.pwd, '/lib' )
 # Layouts
 # ---------------------------------------
 
-page "/feed.xml", :layout => false
-page "/_lib/*", :layout => false
+page "/feed.xml", layout: false
 
 require 'remove_drafts'
 activate :remove_drafts
 
 activate :blog do |blog|
-
-  blog.prefix = "articles"
+  blog.prefix    = "articles"
   blog.permalink = ":year/:title.html"
-  blog.layout = "article_layout"
-
+  blog.layout    = "article_layout"
 end
 
 
@@ -32,15 +29,17 @@ set :css_dir,    'assets/css'
 set :js_dir,     'assets/scripts'
 set :images_dir, 'assets/images'
 
-## Ignore the source js files
-ignore "assets/scripts/src/*"
-
 ## Setup Haml
 activate :syntax
-set :haml, { ugly: true, format: :html5 }
+set :haml, ugly: true,
+           format: :html5,
+           hyphenate_data_attrs: false,
+           remove_whitespace: true
 
 ## Use Redcarpet for Markdown
-set :markdown, fenced_code_blocks: true, autolink: true, smartypants: true
+set :markdown, fenced_code_blocks: true,
+               autolink: true,
+               smartypants: true
 set :markdown_engine, :redcarpet
 
 
@@ -64,6 +63,6 @@ configure :build do
 
   # Enable cache buster
   # Don't give a hash to assets in the static folder
-  activate :asset_hash, :ignore => %r{^(assets/static/.*)}
+  activate :asset_hash, ignore: %r{^(assets/static/.*)}
 
 end

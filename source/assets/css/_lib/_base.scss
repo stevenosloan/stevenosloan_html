@@ -158,6 +158,8 @@ a{
     code {
       @include monospace;
       white-space: pre;
+      background: transparent;
+      padding: 0;
     }
   }
   code {
