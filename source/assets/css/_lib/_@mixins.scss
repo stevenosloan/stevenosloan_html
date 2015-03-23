@@ -1,0 +1,53 @@
+/*
+**  TABLE OF CONTENTS
+**
+**  1. Layout
+**  2. Style
+*/
+
+
+@function compact($vars...) {
+  $list: ();
+  @each $var in $vars {
+    @if $var {
+      $list: append($list, $var, comma);
+    }
+  }
+  @return $list;
+}
+
+
+/*     Layout
+----------------------------------------------------------------------------- */
+
+@mixin create-grid( $columns ){
+  $idx: $columns;
+  @while $idx > 0 {
+    .span#{$idx}of#{$columns} {
+      width: $idx/$columns * 100%;
+    }
+    $idx: $idx - 1;
+  }
+}
+
+
+/*     Style
+----------------------------------------------------------------------------- */
+
+@mixin select-color( $hex ){
+  ::selection {
+    background: $hex; /* Safari */
+  }
+  ::-moz-selection {
+    background: $hex; /* Firefox */
+  }
+}
+
+@mixin colors( $name, $hex ){
+  .#{$name} {
+    color: $hex;
+  }
+  .bg-#{$name} {
+    background: $hex;
+  }
+}

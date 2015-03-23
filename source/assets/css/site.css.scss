@@ -1,8 +1,9 @@
-@import "_lib/normalize.scss";
-@import "_lib/$variables.scss";
-@import "_lib/@mixins.scss";
-@import "_lib/base.scss";
-@import "_lib/syntax.scss";
+@import "_lib/normalize";
+@import "_lib/$variables";
+@import "_lib/@mixins";
+@import "_lib/layout";
+@import "_lib/base";
+@import "_lib/syntax";
 
 /*
 **  TABLE OF CONTENTS
@@ -12,92 +13,16 @@
 */
 
 
-/*    Layout
------------------------------------------------ */
-
-
-/*
-**  Columns for the grid
-**
-*/
-%col {
-  padding-left: $gutter;
-  padding-right: $gutter;
-  display: inline-block;
-  @include box-sizing;
-  vertical-align: top;
-}
-
-.col {
-  @extend %col;
-}
-
-/*
-**  Spans for the grid
-**
-*/
-%span1of1 { width: percentage(1/1); }
-%span1of2 { width: percentage(1/2); }
-%span1of3 { width: percentage(1/3); }
-%span2of3 { width: percentage(2/3); }
-%span1of4 { width: percentage(1/4); }
-%span2of4 { width: percentage(2/4); }
-%span3of4 { width: percentage(3/4); }
-
-@media screen and (max-width: $break-mid) {
-  %span1of1,
-  %span1of2,
-  %span1of3,
-  %span2of3,
-  %span2of4,
-  %span3of4 {
-    width: percentage(1/1);
-  }
-  %span1of4 {
-    width: percentage(1/2);
-  }
-}
-
-.span1of1 { @extend %span1of1; }
-.span1of2 { @extend %span1of2; }
-.span1of3 { @extend %span1of3; }
-.span2of3 { @extend %span2of3; }
-.span1of4 { @extend %span1of4; }
-.span2of4 { @extend %span2of4; }
-.span3of4 { @extend %span3of4; }
-
-
-/*
-**
-*/
-.wrapper {
-  width: 90%;
-  max-width: 1008px;
-  margin: 0 auto;
-  @media screen and (max-width: 800px){
-    width: 100%;
-  }
-}
-
-.content {
-  text-align: right;
-  padding-bottom: 20vmin;
-  > * {
-    text-align: left;
-  }
-}
-
-
 /*     Page Elements
 ----------------------------------------------------------------------------- */
 
-html, body{
+html, body {
   width: 100%;
   height: 100%;
 }
 
-body{
-  @include box-sizing;
+body {
+  box-sizing: border-box;
   padding: $gutter*6 0;
   background: $light;
   -webkit-font-smoothing: antialiased;
@@ -106,14 +31,14 @@ body{
   }
 }
 
-.site-header{
+.site-header {
   @extend %col;
   @extend %span1of4;
   border-right: $base solid $highlight;
   vertical-align: middle;
-  .site-title{
+  .site-title {
     text-decoration: none;
-    h1{
+    h1 {
       @include font-size-body;
       @include sans;
       color: $dark;
@@ -124,7 +49,7 @@ body{
   p {
     @include font-size-small;
     margin: .5em 0;
-    a{
+    a {
       color: $dark;
       &:hover {
         color: $black;
@@ -154,34 +79,7 @@ body{
   }
 }
 
-/*
-**
-**
-*/
-.post-nav{
-  border-bottom: 1px solid $light;
-  padding: $baseline * 2.5 0 $baseline/2 ( $baseline * 2 - 4 );
-  @media screen and ( max-width: 42 * $baseline ){
-    padding: $baseline 0 $baseline/2 ( $baseline * 2 - 4 );
-  }
-  a{
-    color: $light;
-    @include font-size-body;
-    text-decoration: none;
-    @include transition;
-    &:before{
-      content: '\2190';
-      margin-right: $baseline;
-      position: relative;
-      bottom: .066666667em;
-    }
-    &:hover{
-      color: $mid;
-    }
-  }
-}
-
-.post-content{
+.post-content {
   @extend %col;
   @extend %span2of3;
   @extend %normalize;
@@ -194,23 +92,28 @@ body{
 **      %h1 Post Title
 **      %p Post Date
 */
-.post-list{
+.post-list {
   @extend %col;
   @extend %span2of3;
   @extend %normalize;
-  padding-top: $gutter*6;
+  padding-top: $gutter*3;
   padding-bottom: $gutter*3;
+
+  & + .post-list {
+    padding-top: $gutter;
+  }
+
   @media screen and (max-width: $break-mid) {
     padding-top: $gutter;
   }
-  a{
+  a {
     display: block;
     text-decoration: none;
     margin: $gutter 0;
-    @include transition( all, .3s, ease );
-    @include box-shadow( -$base*2.5 0 0 0 $light, -$base*3 0 0 0 $highlight );
+    transition: all .3s ease;
+    box-shadow: -$base*2.5 0 0 0 $light, -$base*3 0 0 0 $highlight;
     &:hover {
-      @include box-shadow( -$base*2.5 0 0 0 $light, -$base*3.5 0 0 0 $pop );
+      box-shadow: -$base*2.5 0 0 0 $light, -$base*3.5 0 0 0 $pop;
       h1 {
         color: $black;
       }
@@ -218,7 +121,7 @@ body{
     h1 {
       @include serif;
       @include font-size-body;
-      @include transition( all, .3s, ease );
+      transition: all .3s ease;
       font-weight: normal;
       margin: 0;
     }
@@ -238,44 +141,4 @@ body{
   max-width: 100%;
   @extend %callout-block;
   background: mix( $light, $highlight, 50% );
-}
-
-.content-home{
-  @include box-sizing;
-  @extend %callout-block;
-  margin: 0;
-  padding-top: 52px;
-  *{
-    max-width: $baseline * 42;
-  }
-  .title{
-    font-size: $baseline * 4;
-    line-height: $baseline * 4;
-    margin-bottom: 28px;
-  }
-  a{
-    color: $dark;
-    opacity: 0.7;
-    @include transition;
-    &:hover{
-      opacity: 1.0;
-    }
-  }
-}
-
-.content-contact{
-  @include box-sizing;
-  @extend %callout-block;
-  margin: 0;
-  .title{
-    margin: $baseline 0 0 0;
-  }
-  a{
-    color: $dark;
-    opacity: 0.7;
-    @include transition;
-    &:hover{
-      opacity: 1.0;
-    }
-  }
 }

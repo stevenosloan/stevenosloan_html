@@ -15,11 +15,11 @@
 /*
 **  @colors produces:
 **
-**  .bg-#{name}{
+**  .bg-# {name} {
 **    background: $name;
 **  }
 **
-**  .#{name}{
+**  .# {name} {
 **     color: $name;
 **  }
 */
@@ -37,37 +37,37 @@
 /*     Typography
 ----------------------------------------------------------------------------- */
 
-@mixin font-size-small{
+@mixin font-size-small {
   font-size: $type-small;
   line-height: $line-small;
 }
 
-@mixin font-size-body{
+@mixin font-size-body {
   font-size: $type-mid;
   line-height: $line-mid;
 }
 
-@mixin font-size-subtitle{
+@mixin font-size-subtitle {
   font-size: $type-mid;
   line-height: $line-mid;
 }
 
-@mixin font-size-title{
+@mixin font-size-title {
   font-size: $type-large;
   line-height: $line-large;
 }
 
-@mixin serif{
+@mixin serif {
   font-family: Georgia, "Times New Roman", Times, sans-serif;
 }
 
-@mixin sans{
+@mixin sans {
   font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
 }
 
 
 @mixin monospace {
-  font-family: Consolas, "Courier New", Courier, monospace;
+  font-family: Consolas, Monaco, Menlo, 'Courier New', monospace;
   -webkit-font-smoothing: subpixel-antialiased;
 }
 
@@ -82,18 +82,18 @@ body {
   color: $mid;
 }
 
-.title{
+.title {
   @include font-size-title;
   @include sans;
   color: $dark;
 }
 
-.body{
+.body {
   @include font-size-body;
   @include serif;
 }
 
-.code{
+.code {
   @include font-size-body;
   @include monospace;
 }
@@ -104,15 +104,15 @@ body {
 /*     Styles
 ----------------------------------------------------------------------------- */
 
-a{
+a {
   text-decoration: none;
   color: inherit;
-  &:hover{
+  &:hover {
     text-decoration: underline;
   }
 }
 
-%callout-block{
+%callout-block {
   padding: $gutter*2 $gutter;
   border-top: 1px solid mix( $light, $mid, 80% );
   border-bottom: 1px solid mix( $light, $mid, 80% );
@@ -120,26 +120,26 @@ a{
   margin: $gutter*2 0;
 }
 
-%normalize{
-  h1{
+%normalize {
+  h1 {
     @include sans;
     @include font-size-title;
     color: $dark;
     margin: 0 0 1em 0;
   }
-  h2{
+  h2 {
     @include sans;
     @include font-size-subtitle;
     color: $dark;
     margin: .5em 0 0 0;
   }
-  p{
+  p {
     @include serif;
     @include font-size-body;
     color: $mid;
     margin: 1em 0 2em 0;
   }
-  a{
+  a {
     color: $dark;
     &:hover {
       color: $black;
@@ -166,12 +166,12 @@ a{
     background: $white;
     display: inline-block;
     padding: 0 .5em;
-    @include border-radius(.25em);
+    border-radius: .25em;
     line-height: 1.35;
   }
-  blockquote{
+  blockquote {
     @extend %callout-block;
-    p{
+    p {
       @include font-size-title;
       @include sans;
       margin: 0;
