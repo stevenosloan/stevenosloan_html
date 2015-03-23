@@ -1,0 +1,15 @@
+-
+  title: 'Statistrano'
+  url: 'http://github.com/mailchimp/statistrano'
+  description: |
+    Deployment tool focused on static sites.
+-
+  title: 'Middleman::DataSource'
+  url: 'http://github.com/stevenosloan/middleman-data_source'
+  description: |
+    Load data from remote sources into middleman.
+-
+  title: 'Slack::Notifier'
+  url: 'http://github.com/stevenosloan/slack-notifier'
+  description: |
+    Slim ruby wrapper for sending messages to slack.

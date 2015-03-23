@@ -11,12 +11,23 @@ title: "Steven Sloan | Designer &amp; Developer in Atlanta"
 
 
 
-%nav.post-list#anchor-articles
+%nav.post-list
 
-  %h2 Recent Writing:
+  %h2 Recent Articles:
 
   - blog.articles.each do |article|
     %a{ :href => "#{article.url}" }
       %article.post
         %h1= article.title
         %p= article.date.strftime('%b %e, %Y')
+
+
+%nav.post-list
+
+  %h2 Select Projects:
+
+  - data.projects.each do |project|
+    %a{ href: project.url }
+      %article.post
+        %h1= project.title
+        %p= project.description
