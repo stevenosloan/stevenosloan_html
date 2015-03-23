@@ -5,7 +5,7 @@ ruby   '2.2.1'
 gem 'middleman',        '~> 3.3.10'
 gem 'middleman-blog',   '~> 3.5.3'
 gem 'middleman-syntax', '~> 2.0.0'
-
+gem 'middleman-autoprefixer', '~> 2.4'
 
 ## utility
 gem 'rake',         '~> 10.1'

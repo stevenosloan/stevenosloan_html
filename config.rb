@@ -42,6 +42,9 @@ set :markdown, fenced_code_blocks: true,
                smartypants: true
 set :markdown_engine, :redcarpet
 
+activate :autoprefixer do |config|
+  config.browsers = ['last 2 versions', 'Explorer >= 9']
+end
 
 # Helpers
 # ---------------------------------------
