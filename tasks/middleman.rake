@@ -9,7 +9,9 @@ namespace :middleman do
   end
 
 	task :build => [:env] do
-	  system "bundle exec middleman build --clean"
+	  unless system "bundle exec middleman build --clean"
+      raise "error during build"
+    end
 	end
 
 	task :server => [:env] do
