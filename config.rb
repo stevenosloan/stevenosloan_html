@@ -39,7 +39,8 @@ set :haml, ugly: true,
 ## Use Redcarpet for Markdown
 set :markdown, fenced_code_blocks: true,
                autolink: true,
-               smartypants: true
+               smartypants: true,
+               with_toc_data: true
 set :markdown_engine, :redcarpet
 
 activate :autoprefixer do |config|
