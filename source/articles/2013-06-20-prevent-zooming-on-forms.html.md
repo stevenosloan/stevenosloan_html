@@ -1,8 +1,7 @@
 ---
-
 title: Prevent form zooming on the iPhone without disabling user scaling.
 date: 2013/06/20
-
+featured: true
 ---
 
 It's that little no-no that we all (generalizing to make myself feel better) end up doing, adding `user-scalable=no` to viewport meta tags. Forms have a tenancy to cause iOS to zoom, it makes people (designers) a little crazy, and we opt out and add the meta tag to make the problem go away.

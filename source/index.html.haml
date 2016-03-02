@@ -13,13 +13,17 @@ title: "Steven Sloan | Designer &amp; Developer in Atlanta"
 
 %nav.post-list
 
-  %h2 Recent Articles:
+  %h2 Select Articles:
 
-  - blog.articles.each do |article|
+  - blog.articles.select { |a| a.data.featured }.each do |article|
     %a{ :href => "#{article.url}" }
       %article.post
         %h1= article.title
         %p= article.date.strftime('%b %e, %Y')
+
+  %a{ href: '/articles' }
+    View All →
+
 
 
 %nav.post-list

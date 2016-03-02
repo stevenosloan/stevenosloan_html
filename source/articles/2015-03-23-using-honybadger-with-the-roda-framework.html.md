@@ -1,6 +1,7 @@
 ---
 title: Using Honybadger with the Roda framework
 date: 2015/03/23
+featured: true
 ---
 
 Recently at work–for smaller internal projects–we have been using [Roda](http://roda.jeremyevans.net/) in place of microframeworks like [Sinatra](http://www.sinatrarb.com/) or [Hobbit](https://github.com/patriciomacadden/hobbit). It's been a great experience. Promoting these projects from toy to dependable meant adding error tracking.

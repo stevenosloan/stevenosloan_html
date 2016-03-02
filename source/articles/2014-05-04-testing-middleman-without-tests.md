@@ -1,6 +1,7 @@
 ---
 title: Testing Middleman updates without tests
 date: 2014/05/04
+featured: true
 ---
 
 Here's a little secret, I have written a few [Middleman](http://middlemanapp.com/) sites without proper test coverage. Even worse, they started out on version 3.0, got bumped to 3.1, and then 3.2 without good coverage.
