@@ -1,5 +1,5 @@
 source 'http://rubygems.org'
-ruby   '2.2.1'
+ruby   '2.3.0'
 
 ## middleman
 gem 'middleman',        '~> 3.3.10'
@@ -13,7 +13,7 @@ gem 'here_or_there', '~> 0.2'
 
 
 ## deploy
-gem 'statistrano', '~> 1.2'
+gem 'statistrano', '~> 1.3'
 
 
 ## rendering engines
