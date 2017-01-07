@@ -1,7 +1,7 @@
 require 'statistrano'
 
 production = define_deployment 'production', :releases do
-  hostname   'stevenosloan.com'
+  hostname   'do.stevenosloan.com'
 
   local_dir  'build'
   remote_dir '/var/www/stevenosloan.com'

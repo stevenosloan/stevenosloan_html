@@ -1,5 +1,5 @@
 source 'http://rubygems.org'
-ruby   '2.3.0'
+ruby   '2.3.3'
 
 ## middleman
 gem 'middleman',        '~> 3.3.10'
