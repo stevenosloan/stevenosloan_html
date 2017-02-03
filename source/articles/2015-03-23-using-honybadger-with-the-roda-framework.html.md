@@ -1,5 +1,5 @@
 ---
-title: Using Honybadger with the Roda framework
+title: Using Honeybadger with the Roda framework
 date: 2015/03/23
 featured: true
 ---
